@@ -1,0 +1,61 @@
+h2{
+	text-align:center;
+}
+
+#view-wrapper{
+
+	width:100%;
+	margin:0 auto;
+}
+#view-wrapper table{
+	margin:0 auto;
+	border:1px solid lightgray;/* border style grey*/
+}
+#view-wrapper table tr th{
+	background-color:#CD853F; /* border style brown*/
+	padding:3px 30px 3px 30px; 
+}
+#view-wrapper table tr{
+	background-color:#FFDEAD;
+}
+#view-wrapper table tr:hover{
+	background-color:cornsilk;
+}
+#view-wrapper table tr td{
+	padding:3px 10px 3px 10px;
+}
+
+#view-wrapper table tr td #delete-btn{
+	background-color:#CC0000;
+	color:white;
+	padding:1px 5px 1px 5px;
+	border-radius:3px;
+	border:1px outset #CC0000;
+	text-decoration:none;
+}
+#view-wrapper table tr td #delete-btn:hover{
+	background-color:#990000;
+}
+#view-wrapper table tr td #edit-btn{
+	background-color:#3366CC;
+	color:white;
+	padding:1px 13px 1px 13px;
+	border-radius:3px;
+	border:1px outset #3366CC;
+	text-decoration:none;
+}
+#view-wrapper table tr td #edit-btn:hover{
+	background-color:#2952A3;
+}
+
+#view-wrapper table tr td #forward-btn{
+	background-color:#57d027;
+	color:white;
+	padding:1px 13px 1px 13px;
+	border-radius:3px;
+	border:1px outset #57d027;
+	text-decoration:none;
+}
+#view-wrapper table tr td #forward-btn:hover{
+	background-color:#368914;
+}

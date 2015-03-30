@@ -1,0 +1,99 @@
+/* this is the full page color */
+body {
+background-image:url(image/papertile.jpg);
+  /*  background-color:url(images/papertile.jpg);  back ground color*/
+}
+
+/* this is for responsive designing phase <div class="article">
+.article {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+*/
+
+/* this is called in index page for showing h1 tag style */
+#h1index  {color:#8B4513;
+text-shadow: 3px 3px 5px #8B4513;
+}
+/* drop down menu styling */
+nav {
+margin: 20px;
+background: ece2a7;
+height: 35px;
+
+}
+
+#nav {
+padding-top: 10px;
+font-family: arial, san-serif;
+
+font-size: 14px;
+font-weight: bold;
+word-spacing: 20px;
+}
+
+#nav a {
+
+text-decoration: none;
+color: 67280F;
+
+padding: 6px;
+
+}
+
+
+#nav a:hover {
+background: brown;
+color: white;
+
+-webkit-transition: background 0.7s linear 0s, color 0.7s linear 0s;
+}
+
+
+/* for aside cms update starting latest news update */
+#aside {
+    line-height:20px;
+    background-color:#8C6843;
+    background-image: url("image/aside1.jpg");
+    height:300px;
+    width:400px;
+    float:left;
+    padding:5px;	      
+}
+/* for aside cms update ending */
+
+/* for footer start */
+
+#footer {
+background-image:url(image/FooterBar.jpg );
+    background-color:black;
+    color:brown;
+    clear:both;
+    text-align:center;
+	font-size:13px;
+	 	 
+}
+
+.freetext{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 5px; color: #5E4022;
+	}
+	
+	a.red:link{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none; color: #D12D05;	
+}
+a.red:visited{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none; color: #D12D05;	
+}
+a.red:hover{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none; color: #654B36;	
+}
+
+.redtext{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px; color: #D12D05;
+}
+
+/* for footer end */
