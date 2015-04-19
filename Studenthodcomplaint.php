@@ -1,14 +1,10 @@
 <?php
-session_start();
+@session_start();
 // store session data
 $regno=$_SESSION['reg_no'];
-//echo $regno;   //it will display hod name kamranghani
 $password=$_SESSION['pass_word'];
 
 
-
-$id=$_GET['forwardreply_page'];
-//$_SESSION['forward_id']=$_GET['forwardreply_page'];  //that is the get variable fetching from user_view_section
 
 
 include_once 'function/functions.php';
@@ -17,22 +13,23 @@ $obj= new database();
  $db=$obj-> connection();
  
 
-$query="select * from complaint_types Where id='$id'";
+$query="select * from students Where reg_no='$regno' AND pass_word='$password'";
 $result=$db->query($query);
 $result=$result->fetch();
 
-
-
-
-
-
-
+ 
+ if ($regno==$result['reg_no'] && $password==$result['pass_word'])
+	
+	{
 	?>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/styletablereply.css" />
 <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+        tinymce.init({selector:'textarea'});
+</script>
 
 
 </head>
@@ -49,10 +46,10 @@ $result=$result->fetch();
 <!--this is starting of mid section -->
     <td width="75%" valign="top"><br>
 <center>
-<form action="forwardpost.php" method="post">
+<form action="studenthodcomplaintlaunch.php" method="post">
 <table width="700" align="center" border="2">
 <tr>
-<td colspan="6"><h1><center>Forward the Mail:</center><h1></td>
+<td colspan="6"><h1><center>Complaint Mail:</center><h1></td>
 </tr>
 
 <tr>
@@ -60,18 +57,28 @@ $result=$result->fetch();
 <td><input type="hidden" name="regno"  value="<?php echo $result['reg_no'];?>" size="60"><center><strong><?php echo $result['reg_no'];?></strong></center> </td>
 </tr>
 
+<tr>
+<td align="right"><strong>Complaint Type</strong></td>
+<td align="center"><input type="radio" name="complainttype" value="Academic"/> Academic<input type="radio" name="complainttype" value="Maintenance"/> Maintenance</td>
 
+</td>
+</tr>
 
 <tr>
-<td align="right"><strong>Select Date of reply:</strong></td>
+<td align="right"><strong>Department:</strong></td>
+<td><center><input type="text" name="department" size="30"></center></td>
+</tr>
+
+<tr>
+<td align="right"><strong>Select Date of Complaint:</strong></td>
 <td><center><input type="date" name="date" size="60"></center></td>
 </tr>
 
 
 
 <tr>
-<td align="right"><strong>Write reply:</strong></td>
-<td><textarea name="writecomplaint" value="" rows="20" cols="80"><?php echo $result['write_compaint'];?></textarea></td>
+<td align="right"><strong>Write Complaint:</strong></td>
+<td><textarea name="writecomplaint" rows="20" cols="80"></textarea></td>
 </tr>
 
 <tr>
@@ -96,4 +103,9 @@ $result=$result->fetch();
 </body>
 </html> 
 
-	 
+<?php 
+	 }
+	
+	 ?>
+
+

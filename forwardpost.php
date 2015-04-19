@@ -2,6 +2,7 @@
 session_start();
 	
     $comid=$_SESSION['forward_id'];
+	$reg_no=$_POST['regno'];
 	 $date=$_POST['date'];
 	 $writecomplaint=$_POST['writecomplaint'];
 
@@ -10,7 +11,7 @@ $obj= new database();
 
  $db=$obj-> connection();
  
-$query =  "INSERT INTO hod_reply value ('','$comid','$date','$writecomplaint')";
+$query =  "INSERT INTO hod_reply value ('','$comid','$reg_no','$date','$writecomplaint')";
  
 $db->exec($query);	 
 echo "Complaint has been successfully launched";

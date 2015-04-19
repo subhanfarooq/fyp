@@ -63,6 +63,10 @@ $_SESSION['pass_word']=$_POST['password'];
 <!--FOR inserting complaint button rollover start-->
 <div class="rollovergraduate" > <a href="#"></a> </div>
 <a href="Studentcomplaint.php" ><img src="images/sc1.jpg" onMouseOver="this.src='images/sc2.jpg'" onMouseOut="this.src='images/sc1.jpg'"  /></a>
+ <hr> 
+<!--FOR inserting complaint button rollover start-->
+<div class="rollovergraduate" > <a href="#"></a> </div>
+<a href="Studenthodcomplaint.php" ><img src="images/hod1.jpg" onMouseOver="this.src='images/hod2.jpg'" onMouseOut="this.src='images/hod1.jpg'"  /></a>
     </td>	
 <!--this is ending of left section -->	
 	<td width="99%">
