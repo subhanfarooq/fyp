@@ -5,10 +5,11 @@ $regno=$_SESSION['reg_no'];
 //echo $regno;   //it will display hod name kamranghani
 $password=$_SESSION['pass_word'];
 
-
+// it is the page of complaint manager section for forwarding the msg of the student  and after pressing forwording msg 
+//you have to fill the form and the form submission goes to forwardpost.php
 
 $id=$_GET['forwardreply_page'];
-//$_SESSION['forward_id']=$_GET['forwardreply_page'];  //that is the get variable fetching from user_view_section
+$_SESSION['forward_id']=$_GET['forwardreply_page'];  //that is the get variable fetching from user_view_section
 
 
 include_once 'function/functions.php';
@@ -16,18 +17,16 @@ $obj= new database();
 
  $db=$obj-> connection();
  
-
+// complaint_types is the table where student complaint has been store//
 $query="select * from complaint_types Where id='$id'";
 $result=$db->query($query);
 $result=$result->fetch();
 
 
-
-
-
-
-
 	?>
+	
+	
+	
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />

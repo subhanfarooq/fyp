@@ -1,6 +1,10 @@
-<?php
-@session_start();
-// store session data
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
 $regno=$_SESSION['reg_no'];
 $password=$_SESSION['pass_word'];
 
@@ -23,19 +27,22 @@ $result=$result->fetch();
 	{
 	?>
 	
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
-    <head>        <title></title>
-    </head>
+    <head>  
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
+<link rel="stylesheet" type="text/css" href="css/submitbuttonupdate.css">
 
-    <body style="background-color:#ece2a7">
-	<a href="studentwelcomepage.php">
-Back
- </a>
+	<title></title>
+    </head>
+<!-- this is header menu bar start included here-->
+<?php include('adminheader.php'); ?>
+  <a class="back" href="studentwelcomepage.php"><font color=" white">Back</font></a>
 	    
  
-        <center>  <h1><hr>          <b><font color="grey">  update your information</font><hr> </h1></center>		
+        <center> <h2><b><font color="grey">  Rename your Password</font> </h2></center>		
 
 
 
@@ -44,30 +51,38 @@ Back
           
     
                     <center>
-	<form action="updatestudent.php" method="post">				
-                         <table bgcolor="#FFE0C0" border="1">
+	<form action="updatestudent.php" method="post" style="margin: 1; text-align: center;>				
+     
+	 <table bgcolor="#FFE0C0" border="1">
 
 <tr>
-    <td>Password: </td>
-    
-	<td><input type="text" name="pass" value="<?php echo $result['pass_word'];?>"/></td>
-  </tr>
-
+    <td><h3>Password:</td>
+	<td><input id="text3" type="text" name="pass" value="<?php echo $result['pass_word'];?>"/></td>
+</tr>
+<!--
 <tr>
     <td>Name: </td>
     
 	<td><input type="text" name="name"  value="<?php echo $result['reg_no'];?>"/></td>
   </tr>  
-  
- 
-  <center><td> <input type="submit" name="submit" value="submit"/></td></center>
+  -->
+ <br><br>
+  <center><td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input  id="gobutton" type="submit" name="submit" value="submit"/></td></center>
   
   </table>
   </form>
   
   </center>
   
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--this is the footer start section -->
+<?php include('footersection.php'); ?>
+
+<!--this is the footer end section -->
      </body>
+	 </html>
 	 <?php 
 	 }
 	
@@ -79,13 +94,14 @@ $obj= new database();
 
  $db=$obj-> connection();
 	 $pass=$_POST['pass'];
-	 $name=$_POST['name'];
+	// $name=$_POST['name'];
 
-$query = "UPDATE students SET reg_no='$name',pass_word='$pass'  where reg_no='$regno' ";
+$query = "UPDATE students SET pass_word='$pass'  where reg_no='$regno' ";
 $db->exec($query);	 
 echo "password has been changed successfully";
 session_start();
 session_destroy();
-echo "<script>window.open('studentsignin.php','_self')</script>";	
+echo "<script>window.open('Signinform.php','_self')</script>";	
 	 }
 	 ?>
+	 <?php } ?>

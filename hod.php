@@ -75,9 +75,11 @@
 <?php include('header.php'); ?>
    
 </center><center>
-<div style="text-align: left">
-<a class="back" href="index.php"><font color=" white">Back</a>
+<!--<div style="text-align: left">
+<a class="back" href="index.php"><font color=" white">Back</font></a>
 </div>
+-->
+<h2><?php echo $_GET[Succseefullaunch]; ?></h2> 
 
 <h1><font color="black">Welcome to head of department page</font></h1>
 
@@ -105,29 +107,60 @@
 
 <td width="80%" valign="top">
 <center>
-<div id="slideshow">
-    <div id="slideshowWindow">
-    
-        <div class="slide">
-            <img src="images/com11.jpg" />
-        </div><!--/slide-->
-        
-     
-        
-        <div class="slide">
-            <img src="images/com33.jpg" />
-        </div><!--/slide-->
-		
-		        <div class="slide">
-            <img src="images/com44.jpg" />
-        </div><!--/slide-->
+<?php
 
-		        <div class="slide">
-            <img src="images/com55.png" />
-        </div><!--/slide-->
-        
-    </div><!--/slideshowWindow-->
-</div><!--/slideshow-->
+/* this is database creating and connecting to it */
+mysql_connect("localhost","root","");
+mysql_select_db("webdesigning2");
+ 
+/*selecting database for fetching the complaints of students  */
+$sql = 'SELECT * FROM hod_studentmail';
+$query=mysql_query($sql);
+
+?>
+
+		<div id="view-wrapper">
+			<h2>View All Students Complaints</h2>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Registration No</th>
+					<th>Complaint Type</th>
+					<th>Department</th>
+					<th>Date</th>
+					<th>Complaint</th>
+					<th colspan="6">Actions</th>
+				</tr>
+			<tr>
+			
+			<?php
+			$sno = 1;
+			while($row = mysql_fetch_assoc($query))  //Fetch a result row as an associative array
+  {
+  
+$id = $row['id'];
+$_SESSION['write_compaint']=$row['write_compaint'];
+
+
+	echo "		<td>$sno</td>
+					<td>$row[reg_no]</td>
+					<td>$row[complaint_type]</td>
+					<td>$row[department]</td>
+					<td>$row[date]</td>
+					<td><div class='comment more'>$_SESSION[write_compaint] &nbsp</div></td>
+					 <td colspan='3'><center><a href='hod_reply_student.php?hod_reply_page_to_std=$id'id= 'edit-btn'>Reply</center></a></td>
+					<td><a href='delete_page_of_student_by_hod.php?del_page_of_std_by_hod=$id' id= 'delete-btn'>Delete</a></td>
+					<td colspan='3'><center><a href='forward.php?forwardreply_page=$id' id= 'forward-btn'>Forward</center></a></td>
+                   
+				</tr>";
+$sno = $sno+1;
+}
+	echo"		</table>
+			
+		</div>";	
+		
+		?>
+	
 </center>
 </table>
 <!--this is ending of table section -->

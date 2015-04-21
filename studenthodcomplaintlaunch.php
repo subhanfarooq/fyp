@@ -32,6 +32,6 @@ $query =  "INSERT INTO  hod_studentmail value ('','$registrationno','$com_type',
  
 $db->exec($query);	 
 echo "Complaint has been successfully launched";
-echo "<script>window.open('studentwelcomepage.php','_self')</script>";
+echo "<script>window.open('studentwelcomepage.php?Succseefullaunch=You have Successfully launch the mail.......!','_self')</script>";
 }
 ?>

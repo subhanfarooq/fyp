@@ -14,7 +14,7 @@
 <?php include('adminheader.php');?>
 
 <!--inlude the header section where banners dropdown menu is placed  -->
-<?php include('header.php'); ?>
+
    
 </center><center>
 
@@ -45,7 +45,7 @@
  <br><br>
 
 <div style="text-align: left">
-<a class="back" href="index.php"><font color=" white">Back</a>
+<a class="back" href="hod.php"><font color=" white">Back</font></a>
 </div>
 
   <table width="100%" height="100%"  border="1" class="container">
@@ -63,7 +63,7 @@ mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
  
 /*selecting database for fetching the complaints of students  */
-$sql = 'SELECT * FROM hod_reply';
+$sql = 'SELECT * FROM  hod_forwardreply_by_compmang';
 $query=mysql_query($sql);
 
 ?>
@@ -97,7 +97,7 @@ $_SESSION['reply']=$row['reply'];
 					<td>$row[date]</td>
 					
 					<td><div class='comment more'>$_SESSION[reply] &nbsp</div></td>
-					 <td colspan='3'><center><a href='reply.php?reply_page=$id'id= 'edit-btn'>Reply</center></a></td>
+					 <td colspan='3'><center><a href='reply_back_compmanger.php?reply_back_compmang=$id'id= 'edit-btn'>Reply</center></a></td>
 					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
 					<td colspan='3'><center><a href='forward.php?forwardreply_page=$id'id= 'forward-btn'>Forward</center></a></td>
                    

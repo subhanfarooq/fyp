@@ -1,12 +1,25 @@
-<?php
-session_start();
-?>
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
+$regno=$_SESSION['reg_no'];
+$password=$_SESSION['pass_word'];
 
+?>
 
 <html><head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/styletable.css">	
-
+<!-- this section start for the see more option-->
+<link rel="stylesheet" type="text/css" href="css/seemore.css">
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
+<!-- this is for the seemore option to view the full and less complaint this is jquery library-->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"  src="css/jquery-1.11.1.min.js"></script>
+<SCRIPT src="css/seemorejavascript.js"></SCRIPT>
 </head>
 <body>	
 
@@ -14,6 +27,8 @@ session_start();
 	<!-- this is header menu bar start included here-->
 <?php include('adminheader.php'); ?>
      <!-- this is header ending -->
+<a class="back" href="studentwelcomepage.php"><font color=" white">Back</a>
+
 <h1 id="h1index"> <center>Welcome to Online Complaint Management System </center></h1>
   <table width="100%" height="100%"  border="1" class="container">
   <tr valign="top">
@@ -43,7 +58,8 @@ $query=mysql_query($sql);
 				<tr>
 					<th>ID</th>
 					
-					
+					<th>complaint type	</th>
+					<th>Department</th>
 					<th>Date</th>
 					<th>Complaint</th>
 					<th colspan="3">Actions</th>
@@ -60,9 +76,10 @@ $id = $row['id'];
 $write_compaint =$row['write_compaint'];
  
 	echo "		<td>$sno</td>
-					
+					<td>$row[complaint_type]</td>
+					<td>$row[department]</td>
 					<td>$row[date]</td>
-					<td>$write_compaint </td>
+						<td><div class='comment more'>$write_compaint &nbsp</div></td>
 					<td><a href='view_complaint_complaintmanager.php?view_page=$id' id='edit-btn'>View</a></td>	
 					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
 					<td colspan='6'><center><a href='user_reply.php?reply_page=$id'id= 'delete-btn'>Reply</center></a></td>
@@ -101,3 +118,4 @@ $sno = $sno+1;
 </body>
 </html>
 
+ <?php } ?>

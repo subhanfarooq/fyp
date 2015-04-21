@@ -11,7 +11,7 @@ $obj= new database();
 
  $db=$obj-> connection();
  
-$query =  "INSERT INTO hod_reply value ('','$comid','$reg_no','$date','$writecomplaint')";
+$query =  "INSERT INTO  hod_forwardreply_by_compmang value ('','$comid','$reg_no','$date','$writecomplaint')";
  
 $db->exec($query);	 
 echo "Complaint has been successfully launched";

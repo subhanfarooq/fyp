@@ -1,3 +1,15 @@
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
+/*
+$_SESSION['reg_no']=$_POST['username'];  // session varible name as reg_no its not database name be remember and post(regno) is the form varible
+$_SESSION['pass_word']=$_POST['password'];
+*/
+?>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -24,7 +36,7 @@
  <img src="images/banner111.jpg" style="width:1337px;height:240px">
  <!-- this is ending header banner for uet peshawar-->
  <br><br>
- <a href='Signinform.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
+ <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 <!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
 
 <a class="back" href="index.php"><font color=" white">Back</a>
@@ -41,11 +53,15 @@
 <hr> 
 <div class="rollovergraduate" > <a href="#"></a> </div>
 <a href="replycomplaint_compllaintmanager.php" ><img src="images/reply1.jpg" onMouseOver="this.src='images/reply2.jpg'" onMouseOut="this.src='images/reply1.jpg'"  /></a>
+<hr>
+<div class="rollovergraduate" > <a href="#"></a> </div>
+<a href="hodmailtocomplaintmanager.php" ><img src="images/hodmail1.jpg" onMouseOver="this.src='images/hodmail2.jpg'" onMouseOut="this.src='images/hodmail1.jpg'"  /></a>
+
     </td>
 
 <td width="80%" valign="top">
 	
-	<!-- called it in style.css with hqindex h1 styling -->
+	
 	
 <?php
 
@@ -53,11 +69,17 @@
 mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
  
+$num_rec_per_page=5;
+
+if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+$start_from = ($page-1) * $num_rec_per_page;  
 /*selecting database for fetching the complaints of students  */
-$sql = 'SELECT * FROM complaint_types';
-$query=mysql_query($sql);
+$sql = "SELECT * FROM complaint_types LIMIT $start_from, $num_rec_per_page"; 
+$query=mysql_query($sql); //run the query
 
 ?>
+<!-- this section is for the numbering or record fetching in limited order-->
+
 
 		<div id="view-wrapper">
 			<h2>View All Students Complaints</h2>
@@ -100,13 +122,38 @@ $sno = $sno+1;
 		</div>";	
 		
 		?>
+
 	
 	
 	
 	 </tr>
 </table>
 <!--this is ending of table section -->
+		<?php 
+		// no of records number at end of the page//
+$sql = "SELECT * FROM complaint_types"; 
+$query = mysql_query($sql); //run the query
+$total_records = mysql_num_rows($query);  //count number of records
+$total_pages = ceil($total_records / $num_rec_per_page); 
 
+//echo "<a href='pagination.php?page=1'>".'|<'."</a> "; // Goto 1st page 
+
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+echo '<span style="color:brown;font:14px Arial"><b>NUmber Of Pages:</b></span>'; 
+echo " &nbsp;&nbsp;&nbsp; ";
+for ($i=1; $i<=$total_pages; $i++) 
+
+{ 
+            
+			
+            echo "<b><a href='complaintmanagersection.php?page=".$i."'>".$i."</a><b> "; 
+			echo " &nbsp;&nbsp;&nbsp;";
+			
+}; 
+//echo "<a href='pagination.php?page=$total_pages'>".'>|'."</a> "; // Goto last page
+?>
 
 
 
@@ -122,3 +169,5 @@ $sno = $sno+1;
 
 </body>
 </html>
+
+<?php } ?>

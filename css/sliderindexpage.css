@@ -1,0 +1,17 @@
+#slideshow #slideshowWindow {
+	width:600px;
+	height:409px;
+	margin:0;
+	padding:0;
+	position:relative;
+	overflow:hidden;
+}
+
+#slideshow #slideshowWindow .slide {
+	margin:0;
+	padding:0;
+	width:600px; 
+	height:409px;
+	float:left;
+	position:relative;
+}

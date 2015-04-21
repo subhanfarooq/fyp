@@ -1,5 +1,10 @@
-<?php
-@session_start();
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
 // store session data
 $regno=$_SESSION['reg_no'];
 $password=$_SESSION['pass_word'];
@@ -26,6 +31,8 @@ $result=$result->fetch();
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/styletablereply.css" />
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
 <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <script>
         tinymce.init({selector:'textarea'});
@@ -39,6 +46,7 @@ $result=$result->fetch();
 
 <!--inlude the header section where banners dropdown menu is placed  -->
 <?php include('header.php'); ?>
+<a class="back" href="studentwelcomepage.php"><font color=" white">Back</a></font>
    
 </center><center>
 
@@ -108,4 +116,4 @@ $result=$result->fetch();
 	
 	 ?>
 
-
+ <?php } ?>

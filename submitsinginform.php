@@ -1,11 +1,11 @@
-<?php
-session_start();	
-// making variables and storing in it and using post method	
+<?php session_start();	
+
+
 $username=$_POST['username'];
 $password=$_POST['password'];
 
 // making session varibale name as reg_no you may give any name to it and then we call it any where and we make it equal to $username because it is the form filling name
-$_SESSION['reg_no']=$username;
+
 // this is the ending of post variables
 
 // we are including function file from function folder where we have made the data base and use use it here
@@ -28,7 +28,9 @@ $result=$result->fetch();
 if ($username==$result['reg_no'] && $password==$result['pass_word'])
 	
 	{
-	include('studentwelcomepage.php');
+	$_SESSION['reg_no']=$username;
+$_SESSION['pass_word']=$password;
+	header("Location:studentwelcomepage.php");
 
 }
 
@@ -43,6 +45,8 @@ $result=$result->fetch();
 if ($username==$result['user_name'] && $password==$result['pass_word'])
 	
 	{
+	$_SESSION['reg_no']=$username;
+$_SESSION['pass_word']=$password;
 	
 include('adminsection.php');
 }
@@ -57,9 +61,17 @@ $result=$result->fetch();
 if ($username==$result['user_name'] && $password==$result['pass_word'])
 	
 	{
+	
+	$_SESSION['reg_no']=$username;
+$_SESSION['pass_word']=$password;
 //opne the complaint manager section
 include('complaintmanagersection.php');
 }
+
+
+
+
+
 else{
 //Selection data from data base so we using sql database
 $query="select * from    head_of_department where user_name='$username' AND pass_word='$password'"; 
@@ -71,14 +83,22 @@ $result=$result->fetch();
 if ($username==$result['user_name'] && $password==$result['pass_word'])
 	
 	{
+	$_SESSION['reg_no']=$username;
+$_SESSION['pass_word']=$password;
 //opne the complaint manager section
 include('hod.php');
 }
+
+
+
+
 else{
 // open the sigin form you have wrong password or reg no it will redirect to signinform.php
 echo"<script>window.open('signinform.php?wrong=Wrong id or password.......!','_self')</script>";
 }
 }}
 }
+
+
 ?>
 

@@ -1,14 +1,95 @@
+<?php session_start();
+if(isset($_SESSION['reg_no']))
+{
+include_once 'function/functions.php';
+//this is the ending of include folder
+
+// making a variable object for database 
+$obj= new database();
+
+ $db=$obj-> connection();
+$username=$_SESSION['reg_no'];
+$password=$_SESSION['pass_word'];
+
+$query="select * from   students where reg_no='$username' AND pass_word='$password'"; 
+
+
+$result=$db->query($query);
+
+$result=$result->fetch();
+if ($username==$result['reg_no'] && $password==$result['pass_word'])
+	
+	{
+	
+	header("Location:studentwelcomepage.php");
+
+}
+
+else{
+//Selection data from data base so we using sql database
+$query="select * from   administrator where user_name='$username' AND pass_word='$password'"; 
+// u_name is name from database where $user_name is declared variables calling
+
+$result=$db->query($query);
+
+$result=$result->fetch();
+if ($username==$result['user_name'] && $password==$result['pass_word'])
+	
+	{
+	header("Location:adminsection.php");
+
+}
+
+else{//Selection data from data base so we using sql database
+$query="select * from   complaint_manager where user_name='$username' AND pass_word='$password'"; 
+// u_name is name from database where $user_name is declared variables calling
+
+$result=$db->query($query);
+
+$result=$result->fetch();
+if ($username==$result['user_name'] && $password==$result['pass_word'])
+	
+	{
+header("Location:complaintmanagersection.php");
+
+}
+
+
+
+
+
+else{
+//Selection data from data base so we using sql database
+$query="select * from    head_of_department where user_name='$username' AND pass_word='$password'"; 
+// u_name is name from database where $user_name is declared variables calling
+
+$result=$db->query($query);
+
+$result=$result->fetch();
+if ($username==$result['user_name'] && $password==$result['pass_word'])
+	
+	{
+//opne the complaint manager section
+header("Location:hod.php");
+
+}
+
+
+
+}}
+}
+
+}
+else
+{
+?>
 <html><head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-
 <link rel="stylesheet"	href="css/mystyle.css" />
-
-
-	
+	<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
 </head>
 <body>	
-
-
 
 <!-- this is header banner for uet peshawar-->
  <img src="images/banner111.jpg" style="width:1337px;height:240px">
@@ -18,7 +99,7 @@
 	<!-- this is header menu bar start included here-->
 <?php include('header.php'); ?>
      <!-- this is header ending -->
-
+<a class="back" href="index.php"><font color=" white">Back</font></a>
 <br>
 <center>
 <!--this is the starting of the form -->
@@ -50,3 +131,16 @@
 
 </body>
 </html>
+
+
+
+<?php 	
+
+
+}
+
+?>
+
+
+
+

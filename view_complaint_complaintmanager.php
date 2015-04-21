@@ -1,5 +1,15 @@
-<?php
-if(!isset($_GET[reply_page]))
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+// this is the location if the session is destroyed// 
+header("Location:signinform.php");
+}
+
+// if the session is not destroyed so it will go to redirect the page view_complaint_complaintmamanager.php//
+else
+{
+//cheking the get variable comming from the studentwelcomepage.php //
+if(isset($_GET['view_page']))
 {
 
 ?>
@@ -8,9 +18,12 @@ if(!isset($_GET[reply_page]))
 <link rel="stylesheet" type="text/css" href="css/styletable.css">	
 <!-- this section start for the see more option-->
 <link rel="stylesheet" type="text/css" href="css/seemore_viewcmmail_by_student.css">
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
+
 
 <!-- this is for the seemore option to view the full and less complaint this is jquery library-->
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"  src="css/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"  src="css/jquery-1.11.1.min (1).js"></script>
 </head>
 <!-- this script for the see more option with javascript code made by user its not library-->
 <SCRIPT src="css/seemorejavascript.js"></SCRIPT>
@@ -19,9 +32,18 @@ if(!isset($_GET[reply_page]))
 <body>	
 
  
-	<!-- this is header menu bar start included here-->
-<?php include('adminheader.php'); ?>
-     <!-- this is header ending -->
+<!-- this is header menu bar start included here-->
+       <?php include('adminheader.php'); ?>
+<!-- this is header ending -->
+
+
+
+
+
+
+<!--inlude the header section where banners dropdown menu is placed  -->
+<a class="back" href="studentwelcomepage.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
+
 <h1 id="h1index"> <center>Welcome to Online Complaint Management System </center></h1>
 
 <?php  
@@ -66,9 +88,9 @@ $id = $row['id'];
 					
 					<td>$row[date]</td>
 					<td><div class='comment more'>$row[write_compaint]</div></td>
-					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
-					<td><a class='lightbox' href='reply_user.php?reply_page=$id' id='edit-btn'>Reply</a></td>	
-					
+					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>";
+					//<td><a class='lightbox' href='reply_user.php?reply_page=$id' id='edit-btn'>Reply</a></td>	
+	echo"
 				</tr>
 				
 				";
@@ -90,7 +112,7 @@ $sno = $sno+1;
 		<br>
 	<!-- this is retreiving of complaint manager mail from table reply-->
 <div id="view-wrapper">
-			
+		<h2>	Complaint Manager Mail</h2>
 			<table>
 				<tr>
 				    <th>ID</th>
@@ -151,3 +173,4 @@ $sno = $sno+1;
 </html>
 
 
+<?php } ?>

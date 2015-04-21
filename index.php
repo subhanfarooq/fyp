@@ -1,7 +1,45 @@
 <html><head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/sliderindexpage.css" />
+<script type="text/javascript" src="jquery-1.11.1.min (1).js"></script>
+<script type="text/javascript">
 
-	
+	$(document).ready(function() {
+							   
+		var currentPosition = 0;
+		var slideWidth = 600;
+		var slides = $('.slide');
+		var numberOfSlides = slides.length;
+		var slideShowInterval;
+		var speed = 3000;
+
+		
+		slideShowInterval = setInterval(changePosition, speed);
+		
+		slides.wrapAll('<div id="slidesHolder"></div>')
+		
+		slides.css({ 'float' : 'left' });
+		
+		$('#slidesHolder').css('width', slideWidth * numberOfSlides);
+		
+		
+		function changePosition() {
+			if(currentPosition == numberOfSlides - 1) {
+				currentPosition = 0;
+			} else {
+				currentPosition++;
+			}
+			moveSlide();
+		}
+		
+		
+		function moveSlide() {
+				$('#slidesHolder')
+				  .animate({'marginLeft' : slideWidth*(-currentPosition)});
+		}
+
+	});
+</script>	
 </head>
 <body>	
 

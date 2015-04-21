@@ -81,8 +81,8 @@ $_SESSION['write_compaint']=$row['write_compaint'];
 					<td>$row[department]</td>
 					<td>$row[date]</td>
 					<td><div class='comment more'>$_SESSION[write_compaint] &nbsp</div></td>
-					 <td colspan='3'><center><a href='reply.php?reply_page=$id'id= 'edit-btn'>Reply</center></a></td>
-					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
+					 <td colspan='3'><center><a href='hod_reply_to_comp.php?hod_reply_page_to_std=$id'id= 'edit-btn'>Reply</center></a></td>
+					<td><a href='delete_page_of_student_by_hod.php?del_page_of_std_by_hod=$id' id= 'delete-btn'>Delete</a></td>
 					<td colspan='3'><center><a href='forward.php?forwardreply_page=$id' id= 'forward-btn'>Forward</center></a></td>
                    
 				</tr>";

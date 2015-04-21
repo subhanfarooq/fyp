@@ -1,7 +1,10 @@
-<?php
-session_start();
-// these sessions are those session that are being called from student table using specific id to get the reg_no and Pass_word
-
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
 $regno=$_SESSION['reg_no'];
 $password=$_SESSION['pass_word'];
 
@@ -96,6 +99,7 @@ $result=$result->fetch();
 
 
 
+<?php } ?>
 
 
 	 

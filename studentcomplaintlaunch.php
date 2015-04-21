@@ -31,6 +31,6 @@ echo $wri_com=$_POST['writecomplaint'];
 $query =  "INSERT INTO complaint_types value ('','$registrationno','$com_type','$dep','$date','$wri_com')";
  
 $db->exec($query);	 
-echo "Complaint has been successfully launched";
+echo "<script>window.open('studentwelcomepage.php?Succseefullaunch=You have Successfully launch the mail.......!','_self')</script>";
 }
 ?>

@@ -1,11 +1,12 @@
-<?php
-session_start();
-// store session data
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
 $regno=$_SESSION['reg_no'];
 $password=$_SESSION['pass_word'];
-
-
-
 
 include_once 'function/functions.php';
 $obj= new database();
@@ -22,58 +23,65 @@ $result=$result->fetch();
 	
 	{
 	?>
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+	
 <html>
-
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
     <head>        <title>Student Profile information</title>
 	    </head>
 
-    <body style="background-color:ece2a7"">
-	<a href="studentwelcomepage.php">
-Back
- </a>
-	 <center>  <h1><hr>          <b><font color="grey"> Student Profile information</font><hr> </h1></center>
+    <body><!-- this is header menu bar start included here-->
+<?php include('adminheader.php'); ?>
+	  <a class="back" href="studentwelcomepage.php"><font color=" white">Back</font></a>
+	 
+	 <center>  <h2>         <b><font color="grey"> Student Profile information</font> </h2></center>
 	 
 	 
 	 <center>
-	  <table bgcolor="#FFE0C0" border="1">
+	  <table bgcolor="#cf965d" border="1" >
 <tr>
-    <td>Name: </td>
+    <td><FONT COLOR=WHITE  SIZE=3><b>Name:</b></font></td>
     
-	<td><?php echo $result['name'];?></td>
+	<td><FONT COLOR=WHITE  SIZE=3><?php echo $result['name'];?></font></td>
   </tr>  
 
 	  
 	  <tr>
-    <td>Registration No: </td>
+    <td><FONT COLOR=WHITE   SIZE=3><b>Registration No: </b></font></td>
     
-	<td><?php echo $result['reg_no']; ?></td>
+	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['reg_no']; ?></font></td>
   </tr> 
   
 <tr>
-    <td>Password: </td>
+    <td><FONT COLOR=WHITE   SIZE=3><b>Password:</b></font> </td>
     
-	<td><?php echo $result['pass_word']; ?></td>
+	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['pass_word']; ?></font></td>
   </tr>
 
 
 <tr>
-    <td>Email adress : </td>
+    <td><FONT COLOR=WHITE   SIZE=3><b>Email adress : </b></font></td>
     
-	<td><?php echo $result['email_adress']; ?></td>
+	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['email_adress']; ?></font></td>
   </tr>  
 
 <tr>
-    <td>Contact: </td>
+    <td><FONT COLOR=WHITE   SIZE=3><b>Contact: </b></font></td>
     
-	<td><?php echo $result['contact']; ?></td>
+	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['contact']; ?></font></td>
   </tr>    
   
    </table>
  
   
   </center>
-  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--this is the footer start section -->
+<?php include('footersection.php'); ?>
+
+<!--this is the footer end section -->
      </body>
 	 </html>
-	<?php }  ?>
+	<?php } } ?>

@@ -4,6 +4,28 @@
 	<h1 id="h1index"> Welcome to Online Complaint Management<center> System </center></h1>
 	
 	
-	<h3>Chairmain Message:</h3>
-<h4>Must have to complete the project in given time of frame.if the project is not completed in specific time then marks will be deducted from your final year score.
-    <h4></td>
+	<center>
+<div id="slideshow">
+    <div id="slideshowWindow">
+    
+        <div class="slide">
+            <img src="images/com11.jpg" />
+        </div><!--/slide-->
+        
+     
+        
+        <div class="slide">
+            <img src="images/com221.jpg" />
+        </div><!--/slide-->
+		
+		        <div class="slide">
+            <img src="images/com441.jpg" />
+        </div><!--/slide-->
+
+		        <div class="slide">
+            <img src="images/com55 copy.jpg" />
+        </div><!--/slide-->
+        
+    </div><!--/slideshowWindow-->
+</div><!--/slideshow-->
+</center></td>
