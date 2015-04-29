@@ -8,6 +8,8 @@ $password=$_SESSION['pass_word'];
 // it is the page of complaint manager section for forwarding the msg of the student  and after pressing forwording msg 
 //you have to fill the form and the form submission goes to forwardpost.php
 
+
+// complaint manager id
 $id=$_GET['reply_back_compmang'];
 $_SESSION['forward_id_mail']=$_GET['reply_back_compmang'];  //that is the get variable fetching from user_view_section
 
@@ -18,7 +20,7 @@ $obj= new database();
  $db=$obj-> connection();
  
 // complaint_types is the table where student complaint has been store//
-$query="select * from complaint_types Where id='$id'";
+$query="select * from  hod_forwardreply_by_compmang Where id='$id'";
 $result=$db->query($query);
 $result=$result->fetch();
 
@@ -48,10 +50,10 @@ $result=$result->fetch();
 <!--this is starting of mid section -->
     <td width="75%" valign="top"><br>
 <center>
-<form action="forwardpost.php" method="post">
+<form action="reply_back_compmanger_post.php" method="post">
 <table width="700" align="center" border="2">
 <tr>
-<td colspan="6"><h1><center>Forward the Mail:</center><h1></td>
+<td colspan="6"><h1><center>Reply to Complaint Manager the Mail:</center><h1></td>
 </tr>
 
 <tr>
@@ -60,12 +62,14 @@ $result=$result->fetch();
 </tr>
 
 
+<!-- Student ID-->
+<input type="hidden" name="com_mang"  value="<?php echo $result['std_id'];?>" size="60">
+
 
 <tr>
 <td align="right"><strong>Select Date of reply:</strong></td>
 <td><center><input type="date" name="date" size="60"></center></td>
 </tr>
-
 
 
 <tr>

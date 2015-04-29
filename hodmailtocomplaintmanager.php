@@ -15,7 +15,7 @@ $_SESSION['pass_word']=$_POST['password'];
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 <!-- this syle sheet is for table styling-->
-<link rel="stylesheet" type="text/css" href="css/styletableforcomplaintmanagerhod.css">	
+<link rel="stylesheet" type="text/css" href="css/styletable.css">	
 
 <!-- this section start for the see more option-->
 <link rel="stylesheet" type="text/css" href="css/seemore.css">
@@ -39,30 +39,14 @@ $_SESSION['pass_word']=$_POST['password'];
  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 <!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
 
-<a class="back" href="index.php"><font color=" white">Back</font></a>
-
-<h2><?php echo $_GET[forward]; ?></h2> 
-<h2><?php echo $_GET[student]; ?></h2> 
-<h2><?php echo $_GET[deleted]; ?></h2> 
-
+<a class="back" href="complaintmanagersection.php"><font color=" white">Back</a>
 
      <!-- this is header ending -->
 <h1 id="h1index"> <center>Welcome to Complaint Manager Section </center></h1>
   <table width="100%" height="100%"  border="1" class="container">
   <tr valign="top">
 <!--this is starting left section -->
-    <td width="5%">
-	
-	 <div class="rollover" > <a href="#"></a> </div>
-<a href="inboxcomplaintmanager.php" ><img src="images/inbox1.jpg" onMouseOver="this.src='images/inbox3.jpg'" onMouseOut="this.src='images/inbox1.jpg'"  /></a>
-<hr> 
-<div class="rollovergraduate" > <a href="#"></a> </div>
-<a href="replycomplaint_compllaintmanager.php" ><img src="images/reply1.jpg" onMouseOver="this.src='images/reply2.jpg'" onMouseOut="this.src='images/reply1.jpg'"  /></a>
-<hr>
-<div class="rollovergraduate" > <a href="#"></a> </div>
-<a href="hodmailtocomplaintmanager.php" ><img src="images/hodmail1.jpg" onMouseOver="this.src='images/hodmail2.jpg'" onMouseOut="this.src='images/hodmail1.jpg'"  /></a>
 
-    </td>
 
 <td width="80%" valign="top">
 	
@@ -79,7 +63,7 @@ $num_rec_per_page=5;
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 $start_from = ($page-1) * $num_rec_per_page;  
 /*selecting database for fetching the complaints of students  */
-$sql = "SELECT * FROM complaint_types LIMIT $start_from, $num_rec_per_page"; 
+$sql = "SELECT * FROM   hod_forwardreply_by_compmang LIMIT $start_from, $num_rec_per_page"; 
 $query=mysql_query($sql); //run the query
 
 ?>
@@ -91,50 +75,38 @@ $query=mysql_query($sql); //run the query
 			<table>
 				<tr>
 					<th>ID</th>
-					<th>Registration No</th>
-					<th>Complaint Type</th>
-					<th>Department</th>
-					<th>Date</th>
-					<th>Complaint</th>
-					<th colspan="8">Actions</th>
+					<th>std_id</th>
+					<th>reg_no	</th>
+					<th>date</th>
+					<th>reply</th>
+					
+					<th colspan="6">Actions</th>
 				</tr>
 			<tr>
-			<div align="center"></div>
-              <?php
-			if (mysql_num_rows($query) == 0)
-			 {
-    echo "<table bgcolor='#DC143C' width='855' border='1'>
-  <tr><br>
-    <td bgcolor='#FF0000'><font color='#fff'>No Complaint by Any Students!!!!!!!!!!!!</td>
-  </tr>
-</table>
-";
-   
-}
-
-else {
+			
+			<?php
 			$sno = 1;
 			while($row = mysql_fetch_assoc($query))  //Fetch a result row as an associative array
   {
   
 $id = $row['id'];
-$_SESSION['write_compaint']=$row['write_compaint'];
+$_SESSION['write_compaint']=$row['reply'];
 
 
 	echo "		<td>$sno</td>
+					<td>$row[std_id]</td>
 					<td>$row[reg_no]</td>
-					<td>$row[complaint_type]</td>
-					<td>$row[department]</td>
 					<td>$row[date]</td>
+					
 					<td><div class='comment more'>$_SESSION[write_compaint] &nbsp</div></td>
 					 <td colspan='3'><center><a href='reply.php?reply_page=$id'id= 'edit-btn'>Reply</center></a></td>
 					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
-					<td colspan='3'><center><a href='forward.php?forwardreply_page=$id' id= 'forward-btn'>Forward</center></a></td>
-					<td colspan='3'><center><a href='viewforwordmails.php?forwordmails=$id' id= 'view-btn'>View</center></a></td>
+					
+					
                    
 				</tr>";
 $sno = $sno+1;
-}}
+}
 	echo"		</table>
 			
 		</div>";	
@@ -142,7 +114,7 @@ $sno = $sno+1;
 		?>
 
 	
-
+	
 	
 	 </tr>
 </table>

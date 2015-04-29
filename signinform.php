@@ -21,7 +21,7 @@ if ($username==$result['reg_no'] && $password==$result['pass_word'])
 	
 	{
 	
-	header("Location:studentwelcomepage.php");
+header("Location:studentwelcomepage.php");
 
 }
 
@@ -36,7 +36,7 @@ $result=$result->fetch();
 if ($username==$result['user_name'] && $password==$result['pass_word'])
 	
 	{
-	header("Location:adminsection.php");
+header("Location:adminsection.php");
 
 }
 
@@ -101,6 +101,9 @@ else
      <!-- this is header ending -->
 <a class="back" href="index.php"><font color=" white">Back</font></a>
 <br>
+<!-- this is the get variable for password successfully changes-->
+<h2><font color="red"><?php echo $_GET[updatepass]; ?></font></h2> 
+
 <center>
 <!--this is the starting of the form -->
 	<form class="loginform group" action="submitsinginform.php" method="post">
@@ -116,8 +119,10 @@ else
 		 <button type="submit" name="login" >Login</button>
 	</form>
 	<br>
+	
 	<!-- call this globle get varible from submitsigninform.php to show the msg that user id or password is wrong on the page below form-->
-         <?php echo $_GET[wrong]; ?> 
+        <h3><font color="blue"> <?php echo $_GET[wrong]; ?></font></h3> 
+		 
         
 <br><br><br><br><br><br><br><br><br>
 
@@ -140,7 +145,3 @@ else
 }
 
 ?>
-
-
-
-

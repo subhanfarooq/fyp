@@ -9,7 +9,7 @@ header("Location:signinform.php");
 else
 {
 //cheking the get variable comming from the studentwelcomepage.php //
-if(isset($_GET['view_page']))
+if(isset($_GET['viewstdmail']))
 {
 
 ?>
@@ -42,29 +42,29 @@ if(isset($_GET['view_page']))
 
 
 <!--inlude the header section where banners dropdown menu is placed  -->
-<a class="back" href="studentwelcomepage.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
+<a class="back" href="hod.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
 
-<h1 id="h1index"> <center>Welcome to Online Complaint Management System </center></h1>
+<h1 id="h1index"> <center>Specific User  </center></h1>
 
 <?php  
 // database connectivity
 mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
 
-if(isset($_GET[view_page]))
+if(isset($_GET[viewstdmail]))
 {
-$id=$_GET['view_page'];
+$id=$_GET['viewstdmail'];
 
 
 // this is the msg of user to see its own msg
-$query="select * from complaint_types where id='$id'";
+$query="select * from hod_studentmail where id='$id'";
 $run_post=mysql_query($query);
 
 
 
 ?>
 <div id="view-wrapper">
-			<h2>Your Mail</h2>
+			<h2>Student Mail</h2>
 			<table>
 				<tr>
 					<th>ID</th>
@@ -112,12 +112,13 @@ $sno = $sno+1;
 		<br>
 	<!-- this is retreiving of complaint manager mail from table reply-->
 <div id="view-wrapper">
-		<h2>	Complaint Manager Mail</h2>
+		<h2>	HOD mail or Your mail</h2>
 			<table>
 				<tr>
 				    <th>ID</th>
 				    <th>Date of Response</th>
-					<th colspan="3">Complaint Manager Mail</th>
+					<th>Complaint Manager Mail</th>
+					<th colspan="3">Action</th>
 				</tr>
 			<tr>
 			
@@ -127,7 +128,7 @@ $sno = $sno+1;
 $sno = 1;
 
 // this is the msg of complaint manager and fetching it 
-$query1="select * from reply where complaint_id='$id'";
+$query1="select * from  hod_reply where complaint_id='$id'";
 $result=mysql_query($query1);
 
 //$reply=$result['reply'];
@@ -140,6 +141,7 @@ while($row1= mysql_fetch_array($result))
 	echo "		<td>$sno</td>
 				<td> $row1[date]</td>
 				<td><div class='comment more'> $row1[reply]</div></td>
+				<td><a href='delete_own_hodmail.php?del_own_hodmail=$id' id= 'delete-btn'>Delete</a></td>
 				</tr>
 				";
 				
@@ -156,61 +158,7 @@ $sno = $sno+1;
 	}	
 		//<div>$post_content<a id='rmlink' href='details.php?post=$post_id'>Read More</a></div><br>
 		?>	 
-<br>
-	<!-- this is retreiving of complaint manager mail from table reply-->
-<div id="view-wrapper">
-		<h2>	Forword Mail Response by HOD Manager</h2>
-			<table>
-				<tr>
-				    <th>ID</th>
-					<th>com_mang_id</th>
-					<th>Std_id</th>
-					<th>reg_no</th>
-				    <th>Date of Response</th>
-					<th>Complaint Manager Mail</th>
-					
-				</tr>
-			<tr>
-			
-			
-
-<?php
-$sno = 1;
-
-// this is the msg of complaint manager and fetching it 
-$query3="select * from hod_forwardreply_to_compmang where std_id='$id'";
-$result3=mysql_query($query3);
-
-//$reply=$result['reply'];
-
-while($row3=mysql_fetch_array($result3))
-{
-
-
- 
-	echo "		<td>$sno</td>
-	            <td> $row3[com_mang_id]</td>
-				<td> $row3[std_id]</td>
-				<td> $row3[reg_no]</td>
-				<td> $row3[date]</td>
-				<td><div class='comment more'> $row3[reply]</div></td>
-			
-				</tr>
-				";
-				
-$sno = $sno+1;
-
-
-
-
-
-}
-	echo"		</table>
-			
-		</div>";	
-	}	
-		//<div>$post_content<a id='rmlink' href='details.php?post=$post_id'>Read More</a></div><br>
-		?>		
+	
 
 
 <br><br><br><br>
@@ -226,4 +174,4 @@ $sno = $sno+1;
 </body>
 </html>
 
-
+<?php } ?>

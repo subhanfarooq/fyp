@@ -30,6 +30,8 @@ $result=$result->fetch();
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/styletablereply.css" />
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
 <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <script>
         tinymce.init({selector:'textarea'});
@@ -40,9 +42,9 @@ $result=$result->fetch();
 
 
 <?php include('adminheader.php');?>
-
+<a class="back" href="complaintmanagersection.php"><font color=" white">Back</font></a>
 <!--inlude the header section where banners dropdown menu is placed  -->
-<?php include('header.php'); ?>
+
    
 </center><center>
 
@@ -51,14 +53,14 @@ $result=$result->fetch();
     <td width="75%" valign="top"><br>
 <center>
 <form action="replypost.php" method="post">
-<table width="700" align="center" border="2">
+<table width="800" align="center" border="2">
 <tr>
-<td colspan="6"><h1><center>Complaint Mail:</center><h1></td>
+<td colspan="6"><h1><center>Complaint mail to Student:</center><h1></td>
 </tr>
 
 <tr>
 <td align="right"><strong>Registration No:</strong></td>
-<td><?php echo $result['reg_no'];?></td>
+<td><center><strong><?php echo $result['reg_no'];?></strong></center></td>
 </tr>
 
 
@@ -76,7 +78,8 @@ $result=$result->fetch();
 </tr>
 
 <tr>
-<td colspan="6" align="center"><input id="shiny" type="submit" name="submit" value="Sent Complaint"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="resetbutton" type="reset"></td>
+<td colspan="6" align="center"><input id="shiny" type="submit" name="submit" value="Sent Complaint"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="resetbutton" type="reset"></td>
 </tr>
 
 

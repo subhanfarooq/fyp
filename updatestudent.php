@@ -101,7 +101,7 @@ $db->exec($query);
 echo "password has been changed successfully";
 session_start();
 session_destroy();
-echo "<script>window.open('Signinform.php','_self')</script>";	
+echo "<script>window.open('signinform.php?updatepass=You have Successfully changed your password.......!','_self')</script>";	
 	 }
 	 ?>
 	 <?php } ?>

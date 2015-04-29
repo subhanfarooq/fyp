@@ -97,10 +97,12 @@ $result=$result->fetch();
 	 <div class="rollover" > <a href="#"></a> </div>
 <a href="updatestudent.php" ><img src="images/rp1.jpg" onMouseOver="this.src='images/rp2.jpg'" onMouseOut="this.src='images/rp1.jpg'"  /></a>
 <hr> 
-<!--FOR view complaint button rollover start-->
+<!--FOR view complaint button rollover start
 <div class="rollovergraduate" > <a href="#"></a> </div>
 <a href="user_view_section.php" ><img src="images/vc1.jpg" onMouseOver="this.src='images/vc2.jpg'" onMouseOut="this.src='images/vc1.jpg'"  /></a>
-<hr> 
+-->
+
+
 <!--FOR view profile button rollover start-->
 <div class="rollovergraduate" > <a href="#"></a> </div>
 <a href="Studentprofile.php" ><img src="images/vp1.jpg" onMouseOver="this.src='images/vp2.jpg'" onMouseOut="this.src='images/vp1.jpg'"  /></a>
@@ -114,7 +116,11 @@ $result=$result->fetch();
 <!--FOR inserting complaint button rollover start-->
 <div class="rollovergraduate" > <a href="#"></a> </div>
 <a href="Studenthodcomplaint.php" ><img src="images/hod1.jpg" onMouseOver="this.src='images/hod2.jpg'" onMouseOut="this.src='images/hod1.jpg'"  /></a>
-    </td>	
+  <hr> 
+<!--FOR inserting complaint button rollover start-->
+<div class="rollovergraduate" > <a href="#"></a> </div>
+<a href="Studentviewhod.php" ><img src="images/vhod1.jpg" onMouseOver="this.src='images/vhod2.jpg'" onMouseOut="this.src='images/vhod1.jpg'"  /></a>
+   </td>	
 <!--this is ending of left section -->	
 	<td width="99%">
 	
@@ -175,68 +181,12 @@ $sno = $sno+1;
 		</div>";	
 		
 		?>
-		<br><br><br><br>
-	<hr>
 	
-	<!-- now the head of department section start where the user launch his/her complaint and see it -->
-	
-	<?php
 
-mysql_connect("localhost","root","");
-mysql_select_db("webdesigning2");
-
-
-
-$b=$_SESSION['reg_no'];
-$sql1 = "SELECT * FROM  hod_studentmail where reg_no='$b'";
-$query1=mysql_query($sql1);
-
-?>
-
-		<div id="view-wrapper">
-			<h2>View your All Launched Complaints for the Head of department </h2>
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>complaint type	</th>
-					<th>Department</th>
-					<th>Date</th>
-					<th>Complaint</th>
-					<th colspan="3">Actions</th>
-				</tr>
-			<tr>
+	</table>
 			
-			<?php
-			$sno = 1;
-			while($row1 = mysql_fetch_assoc($query1))  //Fetch a result row as an associative array
-  {
-  
-
-$id = $row1['id'];
-$write_compaint =$row1['write_compaint'];
- 
-	echo "		<td>$sno</td>
-					<td>$row1[complaint_type]</td>
-					<td>$row1[department]</td>
-					<td>$row1[date]</td>
-					<td><div class='comment more'>$write_compaint &nbsp</div></td>
-					<td><a href='view_complaint_of_hod.php?view_page_of_hod=$id' id='edit-btn'>View</a></td>	
-					<td><a href='delete_hodsendmail.php?del_pagehof=$id' id= 'delete-btn'>Delete</a></td>";
-					
-					//<td colspan='6'><center><a href='user_reply.php?reply_page=$id'id= 'delete-btn'>Reply</center></a></td>
-				
-				echo"</tr>
-				
-				
-				
-				";
-$sno = $sno+1;
-}
-	echo"		</table>
-			
-		</div>";	
+		</div>
 		
-		?>
 	
 </tr>
 

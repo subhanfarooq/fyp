@@ -14,8 +14,8 @@ $obj= new database();
 $query =  "INSERT INTO  hod_forwardreply_by_compmang value ('','$comid','$reg_no','$date','$writecomplaint')";
  
 $db->exec($query);	 
-echo "Complaint has been successfully launched";
-echo "<script>window.open('complaintmanagersection.php','_self')</script>";
+
+echo "<script>window.open('complaintmanagersection.php?forward=A Complaint Has been forward Successfully!','_self')</script>";
 
  ?>
 

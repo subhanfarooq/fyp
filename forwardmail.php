@@ -48,6 +48,7 @@
 <a class="back" href="hod.php"><font color=" white">Back</font></a>
 </div>
 
+<h2><?php echo $_GET[deleted]; ?></h2> 
   <table width="100%" height="100%"  border="1" class="container">
   <tr valign="top">
 
@@ -73,7 +74,7 @@ $query=mysql_query($sql);
 			<table>
 				<tr>
 					<th>ID</th>
-					<th>complaint_id</th>
+					<th>student_id</th>
 					<th>reg_no</th>
 					<th>date</th>
 					<th>reply</th>
@@ -92,13 +93,13 @@ $_SESSION['reply']=$row['reply'];
 
 
 	echo "		<td>$sno</td>
-					<td>$row[complaint_id]</td>
+					<td>$row[std_id]</td>
 					<td>$row[reg_no]</td>
 					<td>$row[date]</td>
 					
 					<td><div class='comment more'>$_SESSION[reply] &nbsp</div></td>
 					 <td colspan='3'><center><a href='reply_back_compmanger.php?reply_back_compmang=$id'id= 'edit-btn'>Reply</center></a></td>
-					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
+					<td><a href='deleteforward_complaints_bymangcomplaint.php?del_com=$id' id= 'delete-btn'>Delete</a></td>
 					<td colspan='3'><center><a href='forward.php?forwardreply_page=$id'id= 'forward-btn'>Forward</center></a></td>
                    
 				</tr>";

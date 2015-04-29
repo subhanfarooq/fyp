@@ -30,8 +30,8 @@ if ($username==$result['reg_no'] && $password==$result['pass_word'])
 	{
 	$_SESSION['reg_no']=$username;
 $_SESSION['pass_word']=$password;
-	header("Location:studentwelcomepage.php");
-
+	//header("Location:studentwelcomepage.php");
+include('studentwelcomepage.php');
 }
 
 else{

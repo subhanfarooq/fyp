@@ -14,7 +14,7 @@ $query =  "INSERT INTO reply value ('','$comid','$date','$writecomplaint')";
  
 $db->exec($query);	 
 echo "Complaint has been successfully launched";
-echo "<script>window.open('complaintmanagersection.php','_self')</script>";
+echo "<script>window.open('complaintmanagersection.php?student=Complaint has been successfully launched!','_self')</script>";
 
  ?>
 

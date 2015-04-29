@@ -57,7 +57,7 @@ $result=$result->fetch();
 <form action="studentcomplaintlaunch.php" method="post">
 <table width="700" align="center" border="2">
 <tr>
-<td colspan="6"><h1><center>Complaint Mail:</center><h1></td>
+<td colspan="6"><h1><center>Complaint Mail to Complaint Manager:</center><h1></td>
 </tr>
 
 <tr>

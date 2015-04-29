@@ -8,7 +8,7 @@ $password=$_SESSION['pass_word'];
 // it is the page of complaint manager section for forwarding the msg of the student  and after pressing forwording msg 
 //you have to fill the form and the form submission goes to forwardpost.php
 
-$id=$_GET['forwardreply_page'];
+ $id=$_GET['forwardreply_page'];
 $_SESSION['forward_id']=$_GET['forwardreply_page'];  //that is the get variable fetching from user_view_section
 
 
@@ -31,6 +31,8 @@ $result=$result->fetch();
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/styletablereply.css" />
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
 <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 
 
@@ -39,8 +41,7 @@ $result=$result->fetch();
 
 <?php include('adminheader.php');?>
 
-<!--inlude the header section where banners dropdown menu is placed  -->
-<?php include('header.php'); ?>
+<a class="back" href="complaintmanagersection.php"><font color=" white">Back</font></a>
    
 </center><center>
 
@@ -49,15 +50,16 @@ $result=$result->fetch();
     <td width="75%" valign="top"><br>
 <center>
 <form action="forwardpost.php" method="post">
-<table width="700" align="center" border="2">
+<table width="800" align="center" border="2">
 <tr>
-<td colspan="6"><h1><center>Forward the Mail:</center><h1></td>
+<td colspan="6"><h1><center>Forward the Mail to Head of Department:</center><h1></td>
 </tr>
 
 <tr>
 <td align="right"><strong>Registration No:</strong></td>
 <td><input type="hidden" name="regno"  value="<?php echo $result['reg_no'];?>" size="60"><center><strong><?php echo $result['reg_no'];?></strong></center> </td>
 </tr>
+
 
 
 
@@ -74,7 +76,7 @@ $result=$result->fetch();
 </tr>
 
 <tr>
-<td colspan="6" align="center"><input id="shiny" type="submit" name="submit" value="Sent Complaint"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="resetbutton" type="reset"></td>
+<td colspan="6" align="center"><input id="shiny" type="submit" name="submit" value="Sent Complaint"/>
 </tr>
 
 

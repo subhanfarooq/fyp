@@ -8,6 +8,8 @@ if(isset($_GET[view_page_of_hod]))
 <link rel="stylesheet" type="text/css" href="css/styletable.css">	
 <!-- this section start for the see more option-->
 <link rel="stylesheet" type="text/css" href="css/seemore_viewcmmail_by_student.css">
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
 
 <!-- this is for the seemore option to view the full and less complaint this is jquery library-->
 <script type="text/javascript"   src="css/jquery-1.11.1.min (1)"></script>
@@ -22,24 +24,24 @@ if(isset($_GET[view_page_of_hod]))
 	<!-- this is header menu bar start included here-->
 <?php include('adminheader.php'); ?>
      <!-- this is header ending -->
-<h1 id="h1index"> <center>Welcome to Online Complaint Management System </center></h1>
+	 
+<!--inlude the header section where banners dropdown menu is placed  -->
+<a class="back" href="Studentviewhod.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
+
+
 
 <?php  
 // database connectivity
 mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
 
-
 $id=$_GET['view_page_of_hod'];
-
 
 // this is the msg of user to see its own msg
 $query="select * from  hod_studentmail where id='$id'";
 $run_post=mysql_query($query);
-
-
-
 ?>
+
 <div id="view-wrapper">
 			<h2>Your Mail</h2>
 			<table>
@@ -50,9 +52,20 @@ $run_post=mysql_query($query);
 					<th>Your complaint</th>
 					<th colspan="3">Actions</th>
 				</tr>
-			<tr>		
+			<div align="left"></div>
+              <?php
+			if (mysql_num_rows($run_post) == 0)
+			 {
+    echo "<table width='500' border='1'>
+  <tr>
+    <td>You Have not launched any mail please launch the mail !!!</td>
+  </tr>
+   </table>
+";
 
-<?php
+}
+
+else {
 $sno = 1;
 while($row= mysql_fetch_array($run_post))
 {
@@ -73,22 +86,20 @@ while($row= mysql_fetch_array($run_post))
 				";
 $sno = $sno+1;
 
-
-
-
-
-}
-	echo"		</table>
-			
-		</div>";	
+}}
+echo"</table></div>";	
+?>
 		
 		
-		?>
-		
-		
-		<br>
-
 <br>
+<br>
+<?php
+// this is the msg of complaint manager and fetching it 
+$query1="select * from  hod_reply where complaint_id='$id'";
+$result=mysql_query($query1);
+
+//$reply=$result['reply'];
+?>
 	<!-- this is retreiving of complaint manager mail from table reply-->
 <div id="view-wrapper">
 		<h2>	Head Of Department Mail Response</h2>
@@ -98,19 +109,22 @@ $sno = $sno+1;
 				    <th>Date of Response</th>
 					<th colspan="3">Complaint Manager Mail</th>
 				</tr>
-			<tr>
 			
-			
+<div align="left"></div>
+              <?php
+			if (mysql_num_rows($result) == 0)
+			 {
+    echo "<table width='500' border='1'>
+  <tr>
+    <td>You Have no mail from Head of department</td>
+  </tr>
+   </table>
+";
 
-<?php
+}
+
+else {
 $sno = 1;
-
-// this is the msg of complaint manager and fetching it 
-$query1="select * from  hod_reply where complaint_id='$id'";
-$result=mysql_query($query1);
-
-//$reply=$result['reply'];
-
 while($row1= mysql_fetch_array($result))
 {
 
@@ -132,23 +146,16 @@ $sno = $sno+1;
 	echo"		</table>
 			
 		</div>";	
-	}	
-		//<div>$post_content<a id='rmlink' href='details.php?post=$post_id'>Read More</a></div><br>
+	}	}
+		
 		?>	 
 
 
 
-<br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
-<!--this is the footer start section -->
-<?php include('footersection.php'); ?>
-
-<!--this is the footer end section -->
-
-
-
+<?php include('footersection.php');?>
+<br></center>
 
 </body>
-</html>
-
-
+</html> 
