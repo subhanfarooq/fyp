@@ -13,7 +13,7 @@
 <a class="back" href="studentwelcomepage.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
 
 <body>
-<br><br><br><br><center><h2><font color=" red">Welcome to Help Section Of Complaint Manager </font></h2></center>
+<br><br><br><br><center><h2><font color=" red">Welcome to Help Section Of Student </font></h2></center>
 <center>
 <img src="images/1212121.jpg" style="width:800px;height:240px">
 </center>
