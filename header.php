@@ -1,32 +1,33 @@
+<?php
 
+/* this is database creating and connecting to it */
+mysql_connect("localhost","root","");
+mysql_select_db("webdesigning2");
+ 
+/*selecting database for fetching the complaints of students  */
+$sql = 'SELECT * FROM home_page';
+$query=mysql_query($sql);
+?>
 <nav>
 	<p id="nav">
-	<table width="55%" cellpadding="0" cellspacing="0" border="0">
+	<table width="35%" cellpadding="0" cellspacing="0" border="0">
 
 											<tr>
+                                                
 
-												<td align="center"><a href="../index.php" >Home</a></td>
+<?php
+while($row = mysql_fetch_assoc($query))  //Fetch a result row as an associative array
+  {
+  
+  
 
-												<td><img src="images/TopMenuDivider.jpg"></td>
 
-												<td align="center"><a href="../departments/departments.html" class="Topmenu">Departments</a></td>
 
-												<td><img src="images/TopMenuDivider.jpg"></td>
-
-												<td align="center"><a href="../addmissions/addmission.htm" class="Topmenu">Admissions</a></td>
-
-												<td><img src="images/TopMenuDivider.jpg"></td>
-
-												<td align="center"><a href="../campuses/campuses.htm" class="Topmenu">Campuses</a></td>
-
-												<td><img src="images/TopMenuDivider.jpg"></td>
-
-												<td align="center"><a href="../faculty/faculty.html" class="Topmenu">Faculty</a></td>
-
-												<td><img src="images/TopMenuDivider.jpg"></td>
-
-												<td align="center"><a href="../contacts/contacts.htm" class="Topmenu">Contacts</a></td>
-
+										
+										echo		"<td align='center'><a href=$row[title_page] >$row[title]</a></td>";
+										echo "<td><img src='images/TopMenuDivider.jpg'></td>";	
+}
+									?>	
 											</tr>
 
 										</table>
