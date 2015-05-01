@@ -102,6 +102,7 @@ else
 <a class="back" href="index.php"><font color=" white">Back</font></a>
 <br>
 <!-- this is the get variable for password successfully changes-->
+<h2><font color="red"><?php echo $_GET[updatepass]; ?></font></h2> 
 
 <center>
 <!--this is the starting of the form -->
@@ -120,7 +121,8 @@ else
 	<br>
 	
 	<!-- call this globle get varible from submitsigninform.php to show the msg that user id or password is wrong on the page below form-->
-       
+        <h3><font color="blue"> <?php echo $_GET[wrong]; ?></font></h3> 
+		 
         
 <br><br><br><br><br><br><br><br><br>
 

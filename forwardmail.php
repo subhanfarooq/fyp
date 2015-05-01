@@ -74,10 +74,10 @@ $query=mysql_query($sql);
 			<table>
 				<tr>
 					<th>ID</th>
-					<th>student_id</th>
-					<th>reg_no</th>
-					<th>date</th>
-					<th>reply</th>
+					<th>Student id</th>
+					<th>Reg no</th>
+					<th>Date</th>
+					<th>Reply</th>
 					
 					<th colspan="6">Actions</th>
 				</tr>
