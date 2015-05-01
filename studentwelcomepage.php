@@ -36,12 +36,7 @@ $_SESSION['pass_word']=$_POST['password'];
 <!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
 
 
-
-
-
-<!--inlude the header section where banners dropdown menu is placed  -->
-<a class="back" href="index.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
-   
+  
 </center>
 
 <!-- displaying only name of the student -->
@@ -79,6 +74,7 @@ $result=$result->fetch();
 <center>
 
 
+<a href='helpstd.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
 <center>
 	<h1 id="h1index"> Welcome to Student Section </h1>
 	</center>

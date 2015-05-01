@@ -19,10 +19,6 @@ $_SESSION['pass_word']=$_POST['password'];
 
 <!-- this section start for the see more option-->
 <link rel="stylesheet" type="text/css" href="css/seemore.css">
-
-<!-- this is for backbutton style-->
-<link rel="stylesheet" type="text/css" href="css/backbutton.css">
-
 <!-- this is for the seemore option to view the full and less complaint this is jquery library-->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"  src="css/jquery-1.11.1.min.js"></script>
 </head>
@@ -39,13 +35,13 @@ $_SESSION['pass_word']=$_POST['password'];
  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 <!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
 
-<a class="back" href="index.php"><font color=" white">Back</font></a>
+
 
 <h2><?php echo $_GET[forward]; ?></h2> 
 <h2><?php echo $_GET[student]; ?></h2> 
 <h2><?php echo $_GET[deleted]; ?></h2> 
-
-
+<br><br>
+<a href='helpcommang.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
      <!-- this is header ending -->
 <h1 id="h1index"> <center>Welcome to Complaint Manager Section </center></h1>
   <table width="100%" height="100%"  border="1" class="container">
