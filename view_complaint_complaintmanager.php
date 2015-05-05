@@ -51,7 +51,7 @@ if(isset($_GET['view_page']))
 mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
 
-if(isset($_GET[view_page]))
+if(@isset($_GET[view_page]))
 {
 $id=$_GET['view_page'];
 
