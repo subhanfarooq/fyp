@@ -1,28 +1,8 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/styletablereply.css" />
-<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-<script>
-        tinymce.init({selector:'textarea'});
-</script>
-
-
-</head>
-
-
 <?php include('adminheader.php');?>
-
-<!--inlude the header section where banners dropdown menu is placed  -->
-
-   
 </center><center>
-
-
-<h1>Welcome to head of department page<html>
-<head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-
 <!-- this syle sheet is for table styling-->
 <link rel="stylesheet" type="text/css" href="css/styletable.css">	
 
@@ -47,8 +27,10 @@
 <div style="text-align: left">
 <a class="back" href="hod.php"><font color=" white">Back</font></a>
 </div>
+<h1>View All Students Complaints forward by Complaint Manager<html>
 
 <h2><?php echo $_GET[deleted]; ?></h2> 
+  
   <table width="100%" height="100%"  border="1" class="container">
   <tr valign="top">
 
@@ -70,7 +52,7 @@ $query=mysql_query($sql);
 ?>
 
 		<div id="view-wrapper">
-			<h2>View All Students Complaints forward by Complaint Manager</h2>
+			<h2></h2>
 			<table>
 				<tr>
 					<th>ID</th>
@@ -79,11 +61,23 @@ $query=mysql_query($sql);
 					<th>Date</th>
 					<th>Reply</th>
 					
-					<th colspan="6">Actions</th>
+					<th colspan="8">Actions</th>
 				</tr>
 			<tr>
-			
-			<?php
+			<div align="left"></div>
+              <?php
+			if (mysql_num_rows($query) == 0)
+			 {
+    echo "<table bgcolor='#DC143C' width='635' border='1'>
+  <tr>
+    <td bgcolor='#FF0000'><font color='#fff'>No Forward Mails by you</td>
+  </tr>
+</table>
+";
+   
+}
+
+else {
 			$sno = 1;
 			while($row = mysql_fetch_assoc($query))  //Fetch a result row as an associative array
   {
@@ -101,10 +95,10 @@ $_SESSION['reply']=$row['reply'];
 					 <td colspan='3'><center><a href='reply_back_compmanger.php?reply_back_compmang=$id'id= 'edit-btn'>Reply</center></a></td>
 					<td><a href='deleteforward_complaints_bymangcomplaint.php?del_com=$id' id= 'delete-btn'>Delete</a></td>
 					<td colspan='3'><center><a href='forward.php?forwardreply_page=$id'id= 'forward-btn'>Forward</center></a></td>
-                   
+                    <td colspan='3'><center><a href='view_comp_&_hodmail.php?reply_page=$id'id= 'view-btn'>View</center></a></td>
 				</tr>";
 $sno = $sno+1;
-}
+}}
 	echo"		</table>
 			
 		</div>";	
@@ -127,19 +121,6 @@ $sno = $sno+1;
 
 <!--this is the footer end section -->
 
-
-
-
-</body>
-</html></h1>
-
-</center>
-<br><br><br><br><br>
-<center>
-
- 
-<?php include('footersection.php');?>
-<br></center>
 
 </body>
 </html> 
