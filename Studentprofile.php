@@ -32,7 +32,11 @@ $result=$result->fetch();
 	    </head>
 
     <body><!-- this is header menu bar start included here-->
-<?php include('adminheader.php'); ?>
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ 
+  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 	  <a class="back" href="studentwelcomepage.php"><font color=" white">Back</font></a>
 	 
 	 <center>  <h2>         <b><font color="grey"> Student Profile information</font> </h2></center>
@@ -41,35 +45,35 @@ $result=$result->fetch();
 	 <center>
 	  <table bgcolor="#cf965d" border="1" >
 <tr>
-    <td><FONT COLOR=WHITE  SIZE=3><b>Name:</b></font></td>
+    <td><FONT COLOR=BLACK  SIZE=3><b>Name:</b></font></td>
     
-	<td><FONT COLOR=WHITE  SIZE=3><?php echo $result['name'];?></font></td>
+	<td><FONT COLOR=BLACK  SIZE=3><?php echo $result['name'];?></font></td>
   </tr>  
 
 	  
 	  <tr>
-    <td><FONT COLOR=WHITE   SIZE=3><b>Registration No: </b></font></td>
+    <td><FONT COLOR=BLACK   SIZE=3><b>Registration No: </b></font></td>
     
-	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['reg_no']; ?></font></td>
+	<td><FONT COLOR=BLACK   SIZE=3><?php echo $result['reg_no']; ?></font></td>
   </tr> 
   
 <tr>
-    <td><FONT COLOR=WHITE   SIZE=3><b>Password:</b></font> </td>
+    <td><FONT COLOR=BLACK   SIZE=3><b>Password:</b></font> </td>
     
-	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['pass_word']; ?></font></td>
+	<td><FONT COLOR=BLACK   SIZE=3><?php echo $result['pass_word']; ?></font></td>
   </tr>
 
 
 <tr>
-    <td><FONT COLOR=WHITE   SIZE=3><b>Email adress : </b></font></td>
+    <td><FONT COLOR=BLACK   SIZE=3><b>Email adress : </b></font></td>
     
-	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['email_adress']; ?></font></td>
+	<td><FONT COLOR=BLACK   SIZE=3><?php echo $result['email_adress']; ?></font></td>
   </tr>  
 
 <tr>
-    <td><FONT COLOR=WHITE   SIZE=3><b>Contact: </b></font></td>
+    <td><FONT COLOR=BLACK   SIZE=3><b>Contact: </b></font></td>
     
-	<td><FONT COLOR=WHITE   SIZE=3><?php echo $result['contact']; ?></font></td>
+	<td><FONT COLOR=BLACK   SIZE=3><?php echo $result['contact']; ?></font></td>
   </tr>    
   
    </table>

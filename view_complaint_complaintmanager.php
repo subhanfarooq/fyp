@@ -32,14 +32,11 @@ if(isset($_GET['view_page']))
 <body>	
 
  
-<!-- this is header menu bar start included here-->
-       <?php include('adminheader.php'); ?>
-<!-- this is header ending -->
-
-
-
-
-
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ 
+  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 
 <!--inlude the header section where banners dropdown menu is placed  -->
 <a class="back" href="studentwelcomepage.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
@@ -51,7 +48,7 @@ if(isset($_GET['view_page']))
 mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
 
-if(@isset($_GET[view_page]))
+if(isset($_GET[view_page]))
 {
 $id=$_GET['view_page'];
 
@@ -88,7 +85,7 @@ $id = $row['id'];
 					
 					<td>$row[date]</td>
 					<td><div class='comment more'>$row[write_compaint]</div></td>
-					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>";
+					<td><a href='deleteownuser.php?delownuser=$id' id= 'delete-btn'>Delete</a></td>";
 					//<td><a class='lightbox' href='reply_user.php?reply_page=$id' id='edit-btn'>Reply</a></td>	
 	echo"
 				</tr>
@@ -110,6 +107,17 @@ $sno = $sno+1;
 		
 		
 		<br>
+<?php  
+// this is the msg of complaint manager and fetching it 
+$query1="select * from reply where complaint_id='$id'";
+$result=mysql_query($query1);
+
+//$reply=$result['reply'];
+
+
+?>		
+		
+		
 	<!-- this is retreiving of complaint manager mail from table reply-->
 <div id="view-wrapper">
 		<h2>	Complaint Manager Mail</h2>
@@ -121,16 +129,22 @@ $sno = $sno+1;
 				</tr>
 			<tr>
 			
-			
+<div align="center"></div>
+              <?php
+			if (mysql_num_rows($result) == 0)
+			 {
+    echo "<table bgcolor='#DC143C' width='500' border='2'>
+  <tr><br>
+    <td bgcolor='#FF0000'><font color='#fff'>No Response by Complaint Manager!!!!!!!!!!!!</td>
+  </tr>
+</table>
+";
+   
+}
 
-<?php
+else {
 $sno = 1;
 
-// this is the msg of complaint manager and fetching it 
-$query1="select * from reply where complaint_id='$id'";
-$result=mysql_query($query1);
-
-//$reply=$result['reply'];
 
 while($row1= mysql_fetch_array($result))
 {
@@ -148,8 +162,7 @@ $sno = $sno+1;
 
 
 
-
-}
+}}
 	echo"		</table>
 			
 		</div>";	
@@ -157,42 +170,56 @@ $sno = $sno+1;
 		//<div>$post_content<a id='rmlink' href='details.php?post=$post_id'>Read More</a></div><br>
 		?>	 
 <br>
+
+<?php
+// this is the msg of complaint manager and fetching it 
+$query3="select * from hod_forwardreply_to_compmang where std_id='$id'";
+$result3=mysql_query($query3);
+
+//$reply=$result['reply'];
+?>
 	<!-- this is retreiving of complaint manager mail from table reply-->
 <div id="view-wrapper">
 		<h2>	Forword Mail Response by HOD Manager</h2>
 			<table>
 				<tr>
 				    <th>ID</th>
-					<th>com_mang_id</th>
-					<th>Std_id</th>
-					<th>reg_no</th>
+				<!--	<th>com_mang_id</th>
+					<th>Std_id</th>  
+					<th>reg_no</th>-->
 				    <th>Date of Response</th>
-					<th>Complaint Manager Mail</th>
+					<th>Head of Department Mail</th>
 					
 				</tr>
 			<tr>
-			
-			
+<div align="center"></div>
+              <?php
+			if (mysql_num_rows($result3) == 0)
+			 {
+    echo "<table bgcolor='#DC143C' width='500' border='2'>
+  <tr><br>
+    <td bgcolor='#FF0000'><font color='#fff'>No Response by Complaint Manager!!!!!!!!!!!!</td>
+  </tr>
+</table>
+";
+   
+}
 
-<?php
+else {
 $sno = 1;
 
-// this is the msg of complaint manager and fetching it 
-$query3="select * from hod_forwardreply_to_compmang where std_id='$id'";
-$result3=mysql_query($query3);
 
-//$reply=$result['reply'];
 
 while($row3=mysql_fetch_array($result3))
 {
 
 
  
-	echo "		<td>$sno</td>
-	            <td> $row3[com_mang_id]</td>
-				<td> $row3[std_id]</td>
-				<td> $row3[reg_no]</td>
-				<td> $row3[date]</td>
+	echo "		<td>$sno</td>";
+	          //  <td> $row3[com_mang_id]</td>
+			//	<td> $row3[std_id]</td>
+			//<td> $row3[reg_no]</td>
+			echo"		<td> $row3[date]</td>
 				<td><div class='comment more'> $row3[reply]</div></td>
 			
 				</tr>
@@ -208,7 +235,7 @@ $sno = $sno+1;
 	echo"		</table>
 			
 		</div>";	
-	}	
+	}	}
 		//<div>$post_content<a id='rmlink' href='details.php?post=$post_id'>Read More</a></div><br>
 		?>		
 

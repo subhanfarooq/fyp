@@ -55,10 +55,30 @@ $_SESSION['pass_word']=$_POST['password'];
 <!--inlude the header section where banners dropdown menu is placed  -->
 <?php include('header.php'); ?>
    
-</center><center>
+
+   
+<!-- this is for displaying pagination records -->
+<?php
+
+/* this is database creating and connecting to it */
+mysql_connect("localhost","root","");
+mysql_select_db("webdesigning2");
+ 
+$num_rec_per_page=5;
+
+if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+$start_from = ($page-1) * $num_rec_per_page;  
+/*selecting database for fetching the complaints of students  */
+$sql = "SELECT * FROM hod_studentmail LIMIT $start_from, $num_rec_per_page"; 
+$query=mysql_query($sql); //run the query
+
+?>
 
 
-<h2><?php echo $_GET[Succseefullaunch]; ?></h2> 
+
+
+<center>
+<h2><font color="#8B4513"><?php echo $_GET[Succseefullaunch]; ?></font></h2> 
 <h2><?php echo $_GET[successful]; ?> </h2> 
 <h2><font color="red"><?php echo $_GET[deleted]; ?> </font></h2> <a href='helphod.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
 
@@ -148,7 +168,33 @@ $sno = $sno+1;
 	
 </center>
 </table>
+</center>
 <!--this is ending of table section -->
+<?php 
+		// no of records number at end of the page//
+$sql = "SELECT * FROM complaint_types"; 
+$query = mysql_query($sql); //run the query
+$total_records = mysql_num_rows($query);  //count number of records
+$total_pages = ceil($total_records / $num_rec_per_page); 
+
+//echo "<a href='pagination.php?page=1'>".'|<'."</a> "; // Goto 1st page 
+
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+echo '<span style="color:brown;font:14px Arial"><b>NUmber Of Pages:</b></span>'; 
+echo " &nbsp;&nbsp;&nbsp; ";
+for ($i=1; $i<=$total_pages; $i++) 
+
+{ 
+            
+			
+            echo "<b><a href='hod.php?page=".$i."'>".$i."</a><b> "; 
+			echo " &nbsp;&nbsp;&nbsp;";
+			
+}; 
+//echo "<a href='pagination.php?page=$total_pages'>".'>|'."</a> "; // Goto last page
+?>
 
 
 

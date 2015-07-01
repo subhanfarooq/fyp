@@ -1,0 +1,82 @@
+h2{
+	text-align:center;
+}
+
+#view-wrapper{
+
+	width:100%;
+
+}
+#view-wrapper table{
+	margin:0 auto;
+	border:1px solid lightgray;/* border style grey*/
+}
+#view-wrapper table tr th{
+	background-color:#CD853F; /* border style brown*/
+	padding:3px 30px 3px 30px; 
+}
+#view-wrapper table tr{
+	background-color:#FFDEAD;
+}
+#view-wrapper table tr:hover{
+	background-color:cornsilk;
+}
+#view-wrapper table tr td{
+	padding:3px 30px 3px 10px;
+}
+
+#view-wrapper table tr td #delete-btn{
+	background-color:#CC0000;
+	color:white;
+	padding:1px 5px 1px 5px;
+	border-radius:3px;
+	border:1px outset #CC0000;
+	text-decoration:none;
+}
+#view-wrapper table tr td #delete-btn:hover{
+	background-color:#990000;
+}
+#view-wrapper table tr td #edit-btn{
+	background-color:#3366CC;
+	color:white;
+	padding:1px 13px 1px 13px;
+	border-radius:3px;
+	border:1px outset #3366CC;
+	text-decoration:none;
+}
+#view-wrapper table tr td #edit-btn:hover{
+	background-color:#2952A3;
+}
+
+
+/* this is submitt button for adminadduser.php */
+input#shiny {
+padding: 2px 10px;  /* resizing button */
+/*give the background a gradient*/
+background:#ffae00; /*fallback for browsers that don't support gradients*/
+background: -webkit-linear-gradient(top, #ffae00, #d67600);
+background: -moz-linear-gradient(top, #ffae00, #d67600);
+background: -o-linear-gradient(top, #ffae00, #d67600);
+background: linear-gradient(top, #ffae00, #d67600);
+border:1px outset #dad9d8;
+/*style the text*/
+font-family:Andika, Arial, sans-serif; /*Andkia is available at http://www.google.com/webfonts/specimen/Andika*/
+font-size:1em;
+letter-spacing:0.05em;
+text-transform:uppercase;
+color:#fff;
+text-shadow: 0px 1px 10px #000;
+/*add to small curve to the corners of the button*/
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 10px;  /* square shape made or ovel of the button */
+/*give the button a drop shadow*/
+-webkit-box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+-moz-box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+box-shadow: rgba(0, 0, 0, .55) 0 1px 6px;
+}
+/****NOW STYLE THE BUTTON'S HOVER STATE***/
+input#shiny:hover, input#shiny:focus {
+border:2px solid #dad9d8;
+}
+

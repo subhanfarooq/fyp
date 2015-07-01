@@ -38,12 +38,12 @@ $obj= new database();
  $db=$obj-> connection();
 
 
-echo $name = $_POST['name'];
-echo $regno = $_POST['regno'];
-echo $message = $_POST['password'];
-echo $email = $_POST['email'];
-echo $date = $_POST['date'];
-echo $contact = $_POST['contact'];
+ $name = $_POST['name'];
+ $regno = $_POST['regno'];
+ $message = $_POST['password'];
+ $email = $_POST['email'];
+ $date = $_POST['date'];
+ $contact = $_POST['contact'];
 
 $query1="select * from students where email_adress ='$email'";
 //$run=mysql_query($query1);
@@ -66,10 +66,11 @@ $db->exec($query);
 
 /* its for mail section */
 $to = $email;
-$subject = 'Here is your password ';
-$headers = "From: ".$name." <".$email."> \r\n";
-$send_email = mail($to,$subject,$message,$headers);
-echo $send_email ? "Message sent! you may go to your account and check the password and registration no for sign in " : "Error sending message!";
+$msg = 'Registration No: '."$regno".'       And Password   : '."$message" ;
+$subject = 'Here is your Information Data for Sign up' ;
+$headers = "From: CMS UET Peshawar <".$email."> \r\n";
+$send_email = mail($to,$subject,$msg,$headers);
+echo $send_email ? "Message sent! you may go to your Gmail account and check registration no and Password for sign in " : "Error sending message!";
 
 }}
 ?>

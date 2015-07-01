@@ -24,7 +24,7 @@ while($row = mysql_fetch_assoc($query))  //Fetch a result row as an associative 
 
 
 										
-										echo		"<td align='center'><a href=$row[title_page] >$row[title]</a></td>";
+										echo"<td align='center'><a href=$row[title_page] >$row[title]</a></td>";
 										echo "<td><img src='images/TopMenuDivider.jpg'></td>";	
 }
 									?>	

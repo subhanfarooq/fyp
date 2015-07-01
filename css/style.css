@@ -65,18 +65,13 @@ color: white;
     padding:5px;	      
 }
 /* for aside cms update ending */
+.footer{
+font-size:2px; color #5E4022;
+}
+
 
 /* for footer start */
 
-#footer {
-background-image:url(image/FooterBar.jpg );
-    background-color:black;
-    color:brown;
-    clear:both;
-    text-align:center;
-	font-size:13px;
-	 	 
-}
 
 .freetext{
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 5px; color: #5E4022;
@@ -89,7 +84,7 @@ a.red:visited{
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none; color: #D12D05;	
 }
 a.red:hover{
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none; color: #654B36;	
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: none; color: #654B36;	
 }
 
 .redtext{

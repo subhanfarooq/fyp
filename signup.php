@@ -34,7 +34,7 @@
 <!--this is the starting of the form -->
 	<form class="loginform group" action="signupsubmitt.php" method="post">
 	
-		<h2>Singup</h2>
+		<h2>Signup</h2>
 		<p>Sign up below</p>
 		
 		<!-- Name field-->
@@ -49,8 +49,8 @@
 		<input type="hidden" name="password" value="<?php echo $password; ?>" /> 
 		
 		<!-- email field-->
-	    <label for="email">Email Adress:</label>
-		<input type="email" name="email" value=""  placeholder="Please give valid email Address" required />
+	    <label for="email">Email Adress:Must be Gmail</label>
+		<input type="email" name="email" value=""  placeholder="Please give valid Gmail Adress" required />
 		
 		<!-- date field-->
 	    <label for="date">Date of Registration:</label>

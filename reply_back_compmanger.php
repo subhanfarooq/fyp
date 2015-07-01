@@ -39,7 +39,11 @@ $result=$result->fetch();
 </head>
 
 
-<?php include('adminheader.php');?>
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ 
+  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 
 <!--inlude the header section where banners dropdown menu is placed  -->
 <?php include('header.php'); ?>

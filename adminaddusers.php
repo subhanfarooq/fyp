@@ -1,3 +1,16 @@
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
+/*
+$_SESSION['reg_no']=$_POST['username'];  // session varible name as reg_no its not database name be remember and post(regno) is the form varible
+$_SESSION['pass_word']=$_POST['password'];
+*/
+?>
+
 <!-- this is the rendom password generator-->
 <?php 
 $digit = rand (1,4);
@@ -9,47 +22,46 @@ $z = substr(str_shuffle(str_repeat("~!@#$%^&*()_+-={}|[]\:;<>?,./", 1)), 0, 1);
 
 $password=$digit.$s.$z.$q.$digit2.$t;
 
-
+//this is the rendom password generator end  we called this $password in form field
 
 ?>
 
-<!-- this is the rendom password generator end  we called this $password in form field-->
+
 
 <html>
 <head>
-<style type="text/css">   
-a:link{color:red;
-text-decoration:none;
-}
-a:visited{color:green;
-}
-a:hover{background-color:blue;
-color:white;
-text-decoration:underline;
-font-weight:bold;
-}     
-a:active{background-color:orange;
-}
+<link rel="stylesheet" type="text/css" href="css/style.css" />	
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
+<link rel="stylesheet" type="text/css" href="css/admindeleteuser.css" />
 </style>
-
+<!-- this is header banner for uet peshawar-->
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
+<!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
 </head>
-<body style="background-color:#ece2a7"><br>
- <a href="adminsection.php">BACK</a>
+<body><br>
+ <a class="back" href="adminsection.php">BACK</a>
  </a>
+ <center><h2><?php echo $_GET[Add]; ?> </h2></center>    
 
-<center><h2><hr><b><font color="grey">Add User here by putting information Here</font></b></h2><hr></center>
+<!--<center><h2>Add User here by putting information Here</h2></center>  -->
 
-<br><br><br><br>
-<center>
+<br>
+<center><div id="view-wrapper">
+
 	<form action="adminaddusers.php" method="post">
 	  <table bgcolor="#FFE0C0" border="1">
+	  
+	  <td colspan="2"><center><h3>Add User here by putting information Here</h3></center></td>
         <tr>
           <td>Name: </td>
-          <td><input type="text" name="name" value=""/></td>
+          <td><input type="text" name="name" value="" required></td>
         </tr>
         <tr>
           <td>Registration NO: </td>
-          <td><input type="text" name="regno"  value=""/></td>
+          <td><input type="text" name="regno"  value="" required ></td>
         </tr>
         <tr>
           <td>Password: </td>
@@ -57,26 +69,37 @@ a:active{background-color:orange;
         </tr>
         <tr>
           <td>Email Adress: </td>
-          <td><input type="text" name="email"  value=""/></td>
+          <td><input type="text" name="email"  value="" required ></td>
         </tr>
         <tr>
           <td>Date Of Registration: </td>
-          <td><input type="date" name="date"  value=""/></td>
+          <td><input type="date" name="date"  value="" required ></td>
         </tr>
         <tr>
           <td>Contact: </td>
-          <td><input type="text" name="contact"  value=""/></td>
+          <td><input type="text" name="contact"  value="" required ></td>
         </tr>
-        <td colspan="2"><div align="center">
-          <input type="submit" name="submit" value="submit"/>
-        </div> <div align="center"></div></td>
-          <center>
+        <td colspan="2">
+        <center>  <input id="shiny" type="submit" name="submit" value="submit"/></center>
+        </td>
+          
           </center>
         
       </table>
+	 
 	</form>
-  
+   </div>
 </center>
+
+
+<br><br><br><br>
+
+<!--this is the footer start section -->
+<?php include('footersection.php'); ?>
+
+<!--this is the footer end section -->
+
+
 </body></html>
 
 
@@ -101,6 +124,9 @@ $obj= new database();
 $query =  "INSERT INTO students "."(id, name, reg_no, pass_word, email_adress, date, contact)"."VALUES ('','$name','$regno','$pass','$email','$date','$contact')";
  //'INSERT INTO employee '.'(emp_name,emp_address, emp_salary, join_date) '.'VALUES ( "guest", "XYZ", 2000, NOW() )';
 $db->exec($query);	 
-echo "Account has been successfully created";
+echo "<script>window.open('adminaddusers.php?Add=A User has been successfuly Added.......!','_self')</script>";
 }
 ?>
+
+
+<?php } ?>

@@ -17,11 +17,11 @@ $obj= new database();
 // making variables and storing in it and using post method	
 // complaint_types   reg_no complaint_type department date write_complaint
 //regno complainttype department writecomplaint
-echo $registrationno=$_POST['regno'];
-echo $com_type=$_POST['complainttype'];
-echo $dep=$_POST['department'];
-echo $date=$_POST['date'];
-echo $wri_com=$_POST['writecomplaint'];
+ $registrationno=$_POST['regno'];
+ $com_type=$_POST['complainttype'];
+ $dep=$_POST['department'];
+ $date=$_POST['date'];
+ $wri_com=$_POST['writecomplaint'];
 
 // this is the ending of post variables
 

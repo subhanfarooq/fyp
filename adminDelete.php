@@ -19,5 +19,7 @@ $obj= new database();
 $query="delete from students where id='$id'";
 $db->exec($query);
 
-print "<script type='text/javascript'>window.location='admindeleteusers.php';</script>";
+echo "<script>window.open('admindeleteusers.php?Dele=A User has been successfuly deleted.......!','_self')</script>";
+
+
 	?>

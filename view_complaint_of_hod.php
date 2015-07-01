@@ -1,4 +1,11 @@
-<?php
+<?php session_start();
+if(!isset($_SESSION['reg_no']))
+{
+header("Location:signinform.php");
+}
+else
+{
+
 if(isset($_GET[view_page_of_hod]))
 {
 
@@ -21,9 +28,11 @@ if(isset($_GET[view_page_of_hod]))
 <body>	
 
  
-	<!-- this is header menu bar start included here-->
-<?php include('adminheader.php'); ?>
-     <!-- this is header ending -->
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ 
+  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 	 
 <!--inlude the header section where banners dropdown menu is placed  -->
 <a class="back" href="Studentviewhod.php"><font color=" white">&nbsp;&nbsp;Back</font></a>
@@ -50,7 +59,8 @@ $run_post=mysql_query($query);
 					<th>Your Registration No</th>
 					<th>Date of Lanch</th>
 					<th>Your complaint</th>
-					<th colspan="3">Actions</th>
+				<!--	<th colspan="3">Actions</th>
+				-->
 				</tr>
 			<div align="left"></div>
               <?php
@@ -77,10 +87,10 @@ while($row= mysql_fetch_array($run_post))
 					
 					
 					<td>$row[date]</td>
-					<td><div class='comment more'>$row[write_compaint]</div></td>
-					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
-					<td><a class='lightbox' href='reply_user.php?reply_page=$id' id='edit-btn'>Reply</a></td>	
-					
+					<td><div class='comment more'>$row[write_compaint]</div></td>";
+					//<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>
+					//<td><a class='lightbox' href='reply_user.php?reply_page=$id' id='edit-btn'>Reply</a></td>	
+			echo"		
 				</tr>
 				
 				";
@@ -107,14 +117,14 @@ $result=mysql_query($query1);
 				<tr>
 				    <th>ID</th>
 				    <th>Date of Response</th>
-					<th colspan="3">Complaint Manager Mail</th>
+					<th colspan="3"> Mail</th>
 				</tr>
 			
 <div align="left"></div>
               <?php
 			if (mysql_num_rows($result) == 0)
 			 {
-    echo "<table width='500' border='1'>
+    echo "<table width='350' border='1'>
   <tr>
     <td>You Have no mail from Head of department</td>
   </tr>
@@ -159,3 +169,5 @@ $sno = $sno+1;
 
 </body>
 </html> 
+
+<?php } ?>

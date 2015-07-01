@@ -1,6 +1,6 @@
 <html>
 <head>
-<?php include('adminheader.php');?>
+
 </center><center>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <!-- this syle sheet is for table styling-->
@@ -18,7 +18,11 @@
 <!-- this script for the see more option with javascript code made by user its not library-->
 <SCRIPT src="css/seemorejavascript.js"></SCRIPT>
 
-
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ 
+  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 <body>	
 
 
@@ -27,11 +31,32 @@
 <div style="text-align: left">
 <a class="back" href="hod.php"><font color=" white">Back</font></a>
 </div>
+
+<!-- this is for displaying pagination records -->
+<?php
+
+/* this is database creating and connecting to it */
+mysql_connect("localhost","root","");
+mysql_select_db("webdesigning2");
+ 
+$num_rec_per_page=6;
+
+if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+$start_from = ($page-1) * $num_rec_per_page;  
+/*selecting database for fetching the complaints of students  */
+$sql = "SELECT * FROM  hod_forwardreply_by_compmang LIMIT $start_from, $num_rec_per_page"; 
+$query=mysql_query($sql); //run the query
+
+?>
+
+
+
+
 <h1>View All Students Complaints forward by Complaint Manager<html>
 
 <h2><?php echo $_GET[deleted]; ?></h2> 
   
-  <table width="100%" height="100%"  border="1" class="container">
+  <table width="75%" height="100%"  border="1" class="container">
   <tr valign="top">
 
 
@@ -109,7 +134,33 @@ $sno = $sno+1;
 	
 	 </tr>
 </table>
+</center>
 <!--this is ending of table section -->
+<?php 
+		// no of records number at end of the page//
+$sql = "SELECT * FROM complaint_types"; 
+$query = mysql_query($sql); //run the query
+$total_records = mysql_num_rows($query);  //count number of records
+$total_pages = ceil($total_records / $num_rec_per_page); 
+
+//echo "<a href='pagination.php?page=1'>".'|<'."</a> "; // Goto 1st page 
+
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+echo '<span style="color:brown;font:14px Arial"><b>NUmber Of Pages:</b></span>'; 
+echo " &nbsp;&nbsp;&nbsp; ";
+for ($i=1; $i<=$total_pages; $i++) 
+
+{ 
+            
+			
+            echo "<b><a href='forwardmail.php?page=".$i."'>".$i."</a><b> "; 
+			echo " &nbsp;&nbsp;&nbsp;";
+			
+}; 
+//echo "<a href='pagination.php?page=$total_pages'>".'>|'."</a> "; // Goto last page
+?>
 
 
 

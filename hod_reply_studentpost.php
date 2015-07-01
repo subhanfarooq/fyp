@@ -11,7 +11,7 @@ $obj= new database();
 
  $db=$obj-> connection();
  
-echo $query =  "INSERT INTO  hod_reply value ('','$comid','$reg','$date','$writecomplaint')";
+$query =  "INSERT INTO  hod_reply value ('','$comid','$reg','$date','$writecomplaint')";
  
 $db->exec($query);	 
 echo "<script>window.open('hod.php?Succseefullaunch=You have Successfully launch the mail.......!','_self')</script>";

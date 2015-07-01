@@ -68,7 +68,7 @@ $query1=mysql_query($sql1);
 			 {
     echo "<table width='735' border='1'>
   <tr>
-    <td>You have not send any complaint to Complaint Manager</td>
+    <td>You have not send any complaint to Head of Department</td>
   </tr>
 </table>
 ";

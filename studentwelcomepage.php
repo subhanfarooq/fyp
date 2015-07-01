@@ -1,5 +1,4 @@
-<?php 
-@session_start();
+<?php session_start();
 if(!isset($_SESSION['reg_no']))
 {
 header("Location:signinform.php");
@@ -80,8 +79,8 @@ $result=$result->fetch();
 	<h1 id="h1index"> Welcome to Student Section </h1>
 	</center>
 
-<h2><?php echo @$_GET[Succseefullaunch]; ?></h2> 
-<h2><?php echo @$_GET[deletedhod]; ?></h2> 
+<h2><?php echo $_GET[Succseefullaunch]; ?></h2> 
+<h2><?php echo $_GET[deletedhod]; ?></h2> 
 
 <table width="100%" height="80%" border="2" class="container">
   <tr valign="top">
@@ -147,8 +146,20 @@ $query=mysql_query($sql);
 					<th colspan="3">Actions</th>
 				</tr>
 			<tr>
-			
-			<?php
+			<div align="center"></div>
+              <?php
+			if (mysql_num_rows($query) == 0)
+			 {
+    echo "<table bgcolor='#DC143C' width='730' border='2'>
+  <tr><br>
+    <td bgcolor='#FF0000'><font color='#fff'>No Complaint  launched by you!!!!!!!!!!!!</td>
+  </tr>
+</table>
+";
+   
+}
+
+else {
 			$sno = 1;
 			while($row = mysql_fetch_assoc($query))  //Fetch a result row as an associative array
   {
@@ -172,7 +183,7 @@ $write_compaint =$row['write_compaint'];
 				
 				";
 $sno = $sno+1;
-}
+}}
 	echo"		</table>
 			
 		</div>";	

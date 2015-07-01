@@ -3,7 +3,7 @@
 mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
 
-echo $delete_page=$_GET['del_own_hodmail'];
+$delete_page=$_GET['del_own_hodmail'];
 //here del_page is the get variable in inboxcomplaintmanager.php
 
 $query="delete from  hod_reply where complaint_id='$delete_page'";

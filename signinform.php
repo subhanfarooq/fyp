@@ -102,7 +102,7 @@ else
 <a class="back" href="index.php"><font color=" white">Back</font></a>
 <br>
 <!-- this is the get variable for password successfully changes-->
-<h2><font color="red"><?php echo @$_GET[updatepass]; ?></font></h2> 
+<h2><font color="red"><?php echo $_GET[updatepass]; ?></font></h2> 
 
 <center>
 <!--this is the starting of the form -->

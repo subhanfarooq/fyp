@@ -80,15 +80,19 @@
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
-
+<img src="images/totalview.png"><?php include("counter.php")?></h3>
 
 <!--this is the footer start section -->
 <?php include('footersection.php'); ?>
 
+<!-- this is the hit counter in footer-->
+
 <!--this is the footer end section -->
 
 
-
+<!--<div align='center'><a href='http://www.hit-counts.com'><img src='http://www.hit-counts.com/counter.php?t=MTM1ODg0MA==' border='0' alt='Web Counter'></a><BR><a href='http://www.hit-counts.com'>Web Counter</a></div>
+this is example of hit counter
+-->
 
 </body>
 </html>

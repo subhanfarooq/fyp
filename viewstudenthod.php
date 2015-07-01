@@ -70,7 +70,7 @@ $run_post=mysql_query($query);
 					<th>Your Registration No</th>
 					<th>Date of Lanch</th>
 					<th>Your complaint</th>
-					<th colspan="3">Actions</th>
+					
 				</tr>
 			<tr>		
 <div align="left"></div>
@@ -98,8 +98,8 @@ $id = $row['id'];
 					
 					
 					<td>$row[date]</td>
-					<td><div class='comment more'>$row[write_compaint]</div></td>
-					<td><a href='delete_complaint_complaintmanager.php?del_page=$id' id= 'delete-btn'>Delete</a></td>";
+					<td><div class='comment more'>$row[write_compaint]</div></td>";
+					//<td><a href='delete_student_own_mail_to_hod.php?del_page=$id' id= 'delete-btn'>Delete</a></td>";
 					//<td><a class='lightbox' href='reply_user.php?reply_page=$id' id='edit-btn'>Reply</a></td>	
 	echo"
 				</tr>
@@ -190,6 +190,8 @@ $sno = $sno+1;
 	
 
 
+<br><br><br><br>
+<br><br><br><br>
 <br><br><br><br>
 
 <!--this is the footer start section -->

@@ -37,8 +37,11 @@ $result=$result->fetch();
 
 	<title></title>
     </head>
-<!-- this is header menu bar start included here-->
-<?php include('adminheader.php'); ?>
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ 
+  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
   <a class="back" href="studentwelcomepage.php"><font color=" white">Back</font></a>
 	    
  

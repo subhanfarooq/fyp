@@ -42,7 +42,11 @@ $result=$result->fetch();
 </head>
 
 
-<?php include('adminheader.php');?>
+ <img src="images/banner111.jpg" style="width:1337px;height:240px">
+ <!-- this is ending header banner for uet peshawar-->
+ <br><br>
+ 
+  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 
 <!--inlude the header section where banners dropdown menu is placed  -->
 <?php include('header.php'); ?>
@@ -67,26 +71,26 @@ $result=$result->fetch();
 
 <tr>
 <td align="right"><strong>Complaint Type</strong></td>
-<td align="center"><input type="radio" name="complainttype" value="Academic"/> Academic<input type="radio" name="complainttype" value="Maintenance"/> Maintenance</td>
+<td align="center"><input type="radio" name="complainttype" value="Academic" required="required" /> Academic<input type="radio" name="complainttype" value="Maintenance"/> Maintenance</td>
 
 </td>
 </tr>
 
 <tr>
 <td align="right"><strong>Department:</strong></td>
-<td><center><input type="text" name="department" size="30"></center></td>
+<td><center><input type="text" name="department" size="30"  required></center></td>
 </tr>
 
 <tr>
 <td align="right"><strong>Select Date of Complaint:</strong></td>
-<td><center><input type="date" name="date" size="60"></center></td>
+<td><center><input type="date" name="date" size="60"  required ></center></td>
 </tr>
 
 
 
 <tr>
 <td align="right"><strong>Write Complaint:</strong></td>
-<td><textarea name="writecomplaint" rows="20" cols="80"></textarea></td>
+<td><textarea name="writecomplaint" rows="20" cols="80"   ></textarea></td>
 </tr>
 
 <tr>
