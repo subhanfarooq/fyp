@@ -29,12 +29,18 @@
 <?php include('header.php'); ?>
      <!-- this is header ending -->
 <a class="back" href="index.php">Back</a>
-<br>
+
+<!-- give valid or new email address form signupsubitt-->
+	<center><?php echo $_GET[users]; ?> 
+	<!-- give valid reg no form signupsubitt-->
+	<?php echo $_GET[correct]; ?>
+	</center><br>
+<!--   -->	
 <center>
 <!--this is the starting of the form -->
 	<form class="loginform group" action="signupsubmitt.php" method="post">
 	
-		<h2>Signup</h2>
+		<h2>Sign up</h2>
 		<p>Sign up below</p>
 		
 		<!-- Name field-->
@@ -52,7 +58,7 @@
 	    <label for="email">Email Adress:Must be Gmail</label>
 		<input type="email" name="email" value=""  placeholder="Please give valid Gmail Adress" required />
 		
-		<!-- date field-->
+		<!-- date field
 	    <label for="date">Date of Registration:</label>
 		<input type="date" name="date" value=""   />
 		
@@ -65,11 +71,11 @@
 		 <button type="submit" name="submit" >Signup</button>
 	</form>
 	<br>
-	 <?php echo $_GET[users]; ?> 
 	
+
         
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 
 <!--this is the footer start section -->

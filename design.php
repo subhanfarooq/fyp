@@ -2,7 +2,9 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/sliderindexpage.css" />
 <link rel="stylesheet" type="text/css" href="css/backbutton.css">
+<link rel="stylesheet" type="text/css" href="css/design.css" />
 </head>
+
 <body>	
 
 <!-- this is header banner for uet peshawar-->
@@ -18,23 +20,33 @@
 <a class="back" href="adminsection.php">BACK</a>
  </a>
 <br>
+<center><h2>Welcome to layout Main Setting</h2></center>
 <h2><?php echo $_GET[Inserted]; ?></h2> 
 <h2><?php echo $_GET[Deleted]; ?></h2> 
 
+<nav>
+<p id="nav1">
 <table width="100%" border="1" >
+
   <td valign="top">
+ 
+  
+<!--<a href="headerchange.php" ><h2>Header title insert </h2></a>-->
+<a href="headerinsert.php" >Header title insert</a><br>
+<a href="adminhomepagehader.php" >Header title delete </a><br>
+<a href="copyrightsinsert.php" >Copyrights insert </a><br>
+<a href="copyrightsdelete.php" >Copyrights delete </a>
 
-<a href="headerinsert.php" ><h2>Header title insert </h2></a>
-<a href="adminhomepagehader.php" ><h2>Header title delete </h2></a>
-<a href="copyrightsinsert.php" ><h2>Copyrights insert </h2></a>
-<a href="copyrightsdelete.php" ><h2>Copyrights delete </h2></a>
-
-  </td>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+</td>
+  
 </table>
+</p>
+</nav>
 <!--this is ending of table section -->
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 

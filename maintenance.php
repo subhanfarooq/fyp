@@ -15,10 +15,14 @@ $_SESSION['pass_word']=$_POST['password'];
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 <!-- this syle sheet is for table styling-->
-<link rel="stylesheet" type="text/css" href="css/styletableforcomplaintmanagerhod.css">	
+<link rel="stylesheet" type="text/css" href="css/tablecomplaintmanager_academic.css">	
 
 <!-- this section start for the see more option-->
 <link rel="stylesheet" type="text/css" href="css/seemore.css">
+
+<!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/backbutton.css">
+
 <!-- this is for the seemore option to view the full and less complaint this is jquery library-->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"  src="css/jquery-1.11.1.min.js"></script>
 </head>
@@ -34,41 +38,22 @@ $_SESSION['pass_word']=$_POST['password'];
  <br><br>
  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 <!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
-<a href='helpcommang.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
+<a class="back" href="complaintmanagersection.php"><font color=" white">Back</a></font>
 
 
 <h2><?php echo $_GET[forward]; ?></h2> 
 <h2><?php echo $_GET[student]; ?></h2> 
 <h2><?php echo $_GET[deleted]; ?></h2> 
 
-
+<a href='helpcommang.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
      <!-- this is header ending -->
-<h1 id="h1index"> <center>Welcome to Complaint Manager Section </center></h1>
+<h1 id="h1index"> <center>Welcome to Maintenance Mail Section </center></h1>
+  
   <table width="100%" height="100%"  border="1" class="container">
-  <tr valign="top">
+<center> 
+ <tr valign="top">
 <!--this is starting left section -->
-    <td width="5%">
-	
-	 <div class="rollover" > <a href="#"></a> </div>
-<a href="inboxcomplaintmanager.php" ><img src="images/inbox1.jpg" onMouseOver="this.src='images/inbox3.jpg'" onMouseOut="this.src='images/inbox1.jpg'"  /></a>
-<hr> 
-<!--
-<div class="rollovergraduate" > <a href="#"></a> </div>
-<a href="replycomplaint_compllaintmanager.php" ><img src="images/reply1.jpg" onMouseOver="this.src='images/reply2.jpg'" onMouseOut="this.src='images/reply1.jpg'"  /></a>
-<hr>
--->
-<div class="rollovergraduate" > <a href="#"></a> </div>
-<a href="hodmailtocomplaintmanager.php" ><img src="images/hodmail1.jpg" onMouseOver="this.src='images/hodmail2.jpg'" onMouseOut="this.src='images/hodmail1.jpg'"  /></a>
-<hr>
-<div class="rollovergraduate" > <a href="#"></a> </div>
-<a href="academic.php" ><img src="images/academic1.jpg" onMouseOver="this.src='images/academic2.jpg'" onMouseOut="this.src='images/academic1.jpg'"  /></a>
-
-<hr>
-<div class="rollovergraduate" > <a href="#"></a> </div>
-<a href="maintenance.php" ><img src="images/maintenance1.jpg" onMouseOver="this.src='images/maintenance2.jpg'" onMouseOut="this.src='images/maintenance1.jpg'"  /></a>
-
-
-    </td>
+    
 
 <td width="80%" valign="top">
 	
@@ -85,7 +70,7 @@ $num_rec_per_page=6;
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 $start_from = ($page-1) * $num_rec_per_page;  
 /*selecting database for fetching the complaints of students  */
-$sql = "SELECT * FROM complaint_types LIMIT $start_from, $num_rec_per_page"; 
+$sql = "SELECT * FROM complaint_types WHERE complaint_type='Maintenance' LIMIT $start_from, $num_rec_per_page"; 
 $query=mysql_query($sql); //run the query
 
 ?>
@@ -93,9 +78,7 @@ $query=mysql_query($sql); //run the query
 
 
 		<div id="view-wrapper">
-			<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			View All Students Complaints</h2>
+			<h2>View All Students Maintenance Complaints</h2>
 			<table>
 				<tr>
 					<th>ID</th>
@@ -157,7 +140,7 @@ $sno = $sno+1;
 <!--this is ending of table section -->
 		<?php 
 		// no of records number at end of the page//
-$sql = "SELECT * FROM complaint_types"; 
+$sql = "SELECT * FROM complaint_types WHERE complaint_type='Maintenance'"; 
 $query = mysql_query($sql); //run the query
 $total_records = mysql_num_rows($query);  //count number of records
 $total_pages = ceil($total_records / $num_rec_per_page); 
@@ -174,7 +157,7 @@ for ($i=1; $i<=$total_pages; $i++)
 { 
             
 			
-            echo "<b><a href='complaintmanagersection.php?page=".$i."'>".$i."</a><b> "; 
+            echo "<b><a href='academic.php?page=".$i."'>".$i."</a><b> "; 
 			echo " &nbsp;&nbsp;&nbsp;";
 			
 }; 

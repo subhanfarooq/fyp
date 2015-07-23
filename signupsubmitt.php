@@ -42,7 +42,7 @@ $obj= new database();
  $regno = $_POST['regno'];
  $message = $_POST['password'];
  $email = $_POST['email'];
- $date = $_POST['date'];
+ $date = date("Y-m-d");
  $contact = $_POST['contact'];
 
 $query1="select * from students where email_adress ='$email'";
@@ -58,6 +58,16 @@ exit();
 }
 
 // its the sending mail option to send the mail if the email is did't match in database
+elseif( strlen($regno) < 11 )
+{
+echo "<script>window.open('signup.php?correct=Type Correct Registration No In the field.......!','_self')</script>"; 
+}
+
+/*elseif( !preg_match(" #.*^(?=.*[a-z]{5})(?=.*[0-9]{6}).*$#", $regno) ) {
+
+echo"what";                   
+}
+*/
 else{
 /* insert into database query */
 $query="insert into students value('','$name','$regno','$message','$email','$date','$contact')";

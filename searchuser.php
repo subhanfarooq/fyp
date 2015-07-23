@@ -37,7 +37,7 @@ else
           
     
                     <center>
-	<form action="searchuser.php" method="post" style="margin: 1; text-align: center;>				
+	<form action="searchuseranother.php" method="post" style="margin: 1; text-align: center;>				
      
 	 <table bgcolor="#FFE0C0" border="1">
 <tr>
@@ -71,28 +71,3 @@ else
 	
 	 ?>
 	 
-	 
-	 
-	 <?php
-	 if(isset($_POST['submit'])){
-	 include_once 'function/functions.php';
-$obj= new database();
-
- $db=$obj-> connection();
-	
-	 $name=$_POST['name'];
-//     $pass=$_POST['pass'];
-$query = "Select * from students WHERE name='$name'";
-$result=$db->query($query);
-$result=$result->fetch();	 
-echo  $result['name'];
-echo  $result['reg_no'];
-echo  $result['pass_word'];
-echo  $result['email_adress'];
-	 }
-	 else 
-	 {
-	 echo"no result found";
-	 }
-	 ?>
-	

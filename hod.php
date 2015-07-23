@@ -50,7 +50,7 @@ $_SESSION['pass_word']=$_POST['password'];
  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
 <!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
 
-
+<a href='helphod.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
 
 <!--inlude the header section where banners dropdown menu is placed  -->
 <?php include('header.php'); ?>
@@ -80,9 +80,10 @@ $query=mysql_query($sql); //run the query
 <center>
 <h2><font color="#8B4513"><?php echo $_GET[Succseefullaunch]; ?></font></h2> 
 <h2><?php echo $_GET[successful]; ?> </h2> 
-<h2><font color="red"><?php echo $_GET[deleted]; ?> </font></h2> <a href='helphod.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
+<h2><font color="red"><?php echo $_GET[deleted]; ?> </font></h2> 
 
-<h1><font color="black">Welcome to Head of department page</font></h1>
+
+<h1 id="h1index">Welcome to Head of department page</font></h1>
 <body>	
 
   <table width="100%" height="100%"  border="1" class="container">
@@ -172,7 +173,7 @@ $sno = $sno+1;
 <!--this is ending of table section -->
 <?php 
 		// no of records number at end of the page//
-$sql = "SELECT * FROM complaint_types"; 
+$sql = "SELECT * FROM hod_studentmail"; 
 $query = mysql_query($sql); //run the query
 $total_records = mysql_num_rows($query);  //count number of records
 $total_pages = ceil($total_records / $num_rec_per_page); 

@@ -27,6 +27,7 @@ $result=$result->fetch();
 <html>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <!-- this is for backbutton style-->
+<link rel="stylesheet" type="text/css" href="css/styletable.css" />
 <link rel="stylesheet" type="text/css" href="css/backbutton.css">
     <head>        <title>Student Profile information</title>
 	    </head>
@@ -43,6 +44,7 @@ $result=$result->fetch();
 	 
 	 
 	 <center>
+	 
 	  <table bgcolor="#cf965d" border="1" >
 <tr>
     <td><FONT COLOR=BLACK  SIZE=3><b>Name:</b></font></td>
@@ -75,9 +77,9 @@ $result=$result->fetch();
     
 	<td><FONT COLOR=BLACK   SIZE=3><?php echo $result['contact']; ?></font></td>
   </tr>    
-  
-   </table>
  
+   </table>
+  
   
   </center>
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

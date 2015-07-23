@@ -1,0 +1,32 @@
+nav {
+margin: 20px;
+background: ece2a7;
+height: 35px;
+
+}
+
+#nav1 {
+padding-top: 4px;
+font-family: arial, san-serif;
+
+font-size: 5px;
+font-weight: bold;
+word-spacing: 2px;
+}
+
+#nav1 a {
+
+text-decoration: none;
+color: black;
+padding: 0px;
+
+}
+
+
+#nav1 a:hover {
+background: brown;
+color: white;
+
+-webkit-transition: background 0.3s linear 0s, color 0.3s linear 0s;
+}
+

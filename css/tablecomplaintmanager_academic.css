@@ -5,7 +5,7 @@ h2{
 #view-wrapper{
 
 	width:100%;
-	margin:0 auto;
+	
 }
 #view-wrapper table{
 	margin:0 auto;
@@ -39,7 +39,7 @@ h2{
 #view-wrapper table tr td #edit-btn{
 	background-color:#3366CC;
 	color:white;
-	padding:1px 13px 1px 13px;
+	padding:1px 5px 1px 5px;
 	border-radius:3px;
 	border:1px outset #3366CC;
 	text-decoration:none;
@@ -51,7 +51,7 @@ h2{
 #view-wrapper table tr td #forward-btn{
 	background-color:#57d027;
 	color:white;
-	padding:1px 13px 1px 13px;
+	padding:1px 5px 1px 5px;
 	border-radius:3px;
 	border:1px outset #57d027;
 	text-decoration:none;
@@ -63,7 +63,7 @@ h2{
 #view-wrapper table tr td #view-btn{
 	background-color:#f97a35;
 	color:white;
-	padding:1px 13px 1px 13px;
+	padding:1px 5px 1px 5px;
 	border-radius:3px;
 	border:1px outset #963804;
 	text-decoration:none;
@@ -71,15 +71,3 @@ h2{
 #view-wrapper table tr td #view-btn:hover{
 	background-color:#963804;
 }
-
-/* this is for student box name display */
-#boxforstudent {
-    width: 140px;
-   
-    padding: 15px;
-    background-color: #DEB887;
-    box-shadow: 10px 10px;
-	text-transform: capitalize;
-	overflow: auto;
-}
-

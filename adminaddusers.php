@@ -33,6 +33,7 @@ $password=$digit.$s.$z.$q.$digit2.$t;
 <link rel="stylesheet" type="text/css" href="css/style.css" />	
 <link rel="stylesheet" type="text/css" href="css/backbutton.css">
 <link rel="stylesheet" type="text/css" href="css/admindeleteuser.css" />
+<link rel="stylesheet" type="text/css" href="css/submitbuttonupdate.css">
 </style>
 <!-- this is header banner for uet peshawar-->
  <img src="images/banner111.jpg" style="width:1337px;height:240px">
@@ -56,31 +57,32 @@ $password=$digit.$s.$z.$q.$digit2.$t;
 	  
 	  <td colspan="2"><center><h3>Add User here by putting information Here</h3></center></td>
         <tr>
-          <td>Name: </td>
-          <td><input type="text" name="name" value="" required></td>
+          <td><b>Name: </td>
+          <td><input id="text3" type="text" name="name" value="" required></td>
         </tr>
         <tr>
-          <td>Registration NO: </td>
-          <td><input type="text" name="regno"  value="" required ></td>
+          <td><b>Registration NO: </td>
+          <td><input id="text3" type="text" name="regno"  value="" required ></td>
         </tr>
         <tr>
-          <td>Password: </td>
-          <td><input type="text" name="pass"  value="<?php echo $password; ?>"/></td>
+          <td><b>Password: </td>
+          <td><input id="text3" type="text" name="pass"  value="<?php echo $password; ?>"/></td>
         </tr>
         <tr>
-          <td>Email Adress: </td>
-          <td><input type="text" name="email"  value="" required ></td>
+          <td><b>Email Adress: </td>
+          <td><input id="text3" type="text" name="email"  value="" required ></td>
         </tr>
         <tr>
-          <td>Date Of Registration: </td>
-          <td><input type="date" name="date"  value="" required ></td>
+          <td><b>Date Of Registration: </td>
+          <td><input id="text3" type="date" name="date"  value="" required ></td>
         </tr>
         <tr>
-          <td>Contact: </td>
-          <td><input type="text" name="contact"  value="" required ></td>
+          <td><b>Contact: </td>
+          <td><input id="text3" type="text" name="contact"  value="" required ></td>
         </tr>
         <td colspan="2">
-        <center>  <input id="shiny" type="submit" name="submit" value="submit"/></center>
+		<!-- this id=shiny is called from css page submittbuttonupdate.css-->
+        <center>  <input id="shiny" type="submit" name="submit" value="submit"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="resetbutton" type="reset"></center>
         </td>
           
           </center>

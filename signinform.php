@@ -100,15 +100,19 @@ else
 <?php include('header.php'); ?>
      <!-- this is header ending -->
 <a class="back" href="index.php"><font color=" white">Back</font></a>
-<br>
+
 <!-- this is the get variable for password successfully changes-->
+<center>
 <h2><font color="red"><?php echo $_GET[updatepass]; ?></font></h2> 
+<h3><font color="red"> <?php echo $_GET[logout]; ?></font></h3>
+    <h3><font color="red"> <?php echo $_GET[wrong]; ?></font></h3> 
+</center>
 
 <center>
 <!--this is the starting of the form -->
 	<form class="loginform group" action="submitsinginform.php" method="post">
 	
-		<h2>Singin</h2>
+		<h2>Sign in</h2>
 		<p>Sign in below</p>
 		<label for="myname">Username</label>
 		<input type="text" name="username" value=""  placeholder="Please give username" required /> 
@@ -118,13 +122,13 @@ else
 	
 		 <button type="submit" name="login" >Login</button>
 	</form>
-	<br>
+	
 	
 	<!-- call this globle get varible from submitsigninform.php to show the msg that user id or password is wrong on the page below form-->
-        <h3><font color="blue"> <?php echo $_GET[wrong]; ?></font></h3> 
+    
 		 
         
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
 
 
 <!--this is the footer start section -->

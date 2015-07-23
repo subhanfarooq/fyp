@@ -47,7 +47,7 @@ $result=$result->fetch();
  <br><br>
  
   <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
-<a class="back" href="studentwelcomepage.php"><font color=" white">Back</a>
+<a class="back" href="studentwelcomepage.php"><font color=" white">Back</a></font>
 
 <!--inlude the header section where banners dropdown menu is placed  -->
 <?php include('header.php'); ?>

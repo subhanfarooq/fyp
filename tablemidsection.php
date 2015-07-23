@@ -23,7 +23,15 @@
         </div><!--/slide-->
 
 		        <div class="slide">
-            <img src="images/com55 copy.jpg" />
+            <img src="images/com55.jpg" />
+			
+			
+        </div><!--/slide-->
+		
+		<div class="slide">
+            <img src="images/dies.jpg" />
+			
+			
         </div><!--/slide-->
         
     </div><!--/slideshowWindow-->

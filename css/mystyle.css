@@ -43,7 +43,7 @@ form {
 	width: 340px;
 	margin: 0 auto;
 	position: relative;
-	
+	top: 0;
 	
 	background: #CD853F; /* this is the form color in purple*/
 	background: #7A1631 -webkit-linear-gradient(#CD853F,#3F0B1B);  /* For Safari 5.1 to 6.0 */

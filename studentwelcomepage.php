@@ -10,11 +10,10 @@ $_SESSION['reg_no']=$_POST['username'];  // session varible name as reg_no its n
 $_SESSION['pass_word']=$_POST['password'];
 */
 ?>
-
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet"	href="css/mystylestudentsignin.css" />
+<!-- <link rel="stylesheet"	href="css/mystylestudentsignin.css" />-->
 <!-- this is for backbutton style-->
 <link rel="stylesheet" type="text/css" href="css/backbutton.css">
 <link rel="stylesheet" type="text/css" href="css/styletable.css">	
@@ -25,60 +24,49 @@ $_SESSION['pass_word']=$_POST['password'];
 <SCRIPT src="css/seemorejavascript.js"></SCRIPT>
 </head>
 
-
-
 <body>
 <!-- this is header banner for uet peshawar-->
  <img src="images/banner111.jpg" style="width:1337px;height:240px">
  <!-- this is ending header banner for uet peshawar-->
  <br><br>
+ <!-- this is loogut button -->
  <a href='logout.php' title="LOG OUT"><IMG SRC='images/logout-xxl.png' height=40px width=40px ALIGN=RIGHT></a>
-<!-- <a href='index.php'><IMG SRC='images/wb_back.gif' height=40px width=70px ALIGN=left></a>--> 
+ 
+<!-- this is help section page start-->
+<a href='helpstd.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
 
 
-  
-</center>
-
-<!-- displaying only name of the student -->
 <?php
 $regno=$_SESSION['reg_no'];
 $password=$_SESSION['pass_word'];
 
-
+// displaying only name of the student that why we call it from database 
 include_once 'function/functions.php';
 $obj= new database();
-
- $db=$obj-> connection();
- 
+$db=$obj-> connection();
 
 $query="select * from students Where reg_no='$regno' AND pass_word='$password'";
 $result=$db->query($query);
 $result=$result->fetch();
-
  
- if ($regno==$result['reg_no'] && $password==$result['pass_word'])
-	
+if ($regno==$result['reg_no'] && $password==$result['pass_word'])	
 	{
 	?>
-	<center><FONT COLOR=black   SIZE=5> Hello 
-	
-	<?php
-	echo $result['name'];
-	
+	<!-- this div is called in styletable.css -->
+	<!-- div start using for displaying username for welcome page on studentwelcomepage.php -->
+	<div id="boxforstudent">
+	<font COLOR=black   SIZE=3> Hi,&nbsp; <?php echo $result['name'];
 	
 	}?>
-	</font></center>
-	<!-- this is the ending section of php name display -->
-	
-	
-<center>
-
-
-<a href='helpstd.php' title="help"><IMG SRC='images/help_and_support.gif' height=40px width=40px ALIGN=RIGHT></a>
-<center>
-	<h1 id="h1index"> Welcome to Student Section </h1>
+	</font>
+	</div>
 	</center>
+	<!-- this is the ending section of php name display -->
 
+<center>
+	<h1 id="h1index"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to Student Section </h1>
+</center>
+<center>
 <h2><?php echo $_GET[Succseefullaunch]; ?></h2> 
 <h2><?php echo $_GET[deletedhod]; ?></h2> 
 
@@ -127,15 +115,18 @@ mysql_connect("localhost","root","");
 mysql_select_db("webdesigning2");
 
 //$_SESSION['reg_no']
+$num_rec_per_page=6;
 
+if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+$start_from = ($page-1) * $num_rec_per_page;  
 $a=$_SESSION['reg_no'];
-$sql = "SELECT * FROM complaint_types where reg_no='$a'";
+$sql = "SELECT * FROM complaint_types where reg_no='$a' LIMIT $start_from, $num_rec_per_page";
 $query=mysql_query($sql);
 
 ?>
 
 		<div id="view-wrapper">
-			<h2>View your All Launched Complaints for the complaint manager </h2>
+			<h2>View your All Launched Complaints for the Complaint Manager </h2>
 			<table>
 				<tr>
 					<th>ID</th>
@@ -199,11 +190,37 @@ $sno = $sno+1;
 </tr>
 
 
-</table>
+</table></center>
+<?php 
+$a=$_SESSION['reg_no'];
+		// no of records number at end of the page//
+$sql = "SELECT * FROM complaint_types where reg_no='$a'"; 
+$query = mysql_query($sql); //run the query
+$total_records = mysql_num_rows($query);  //count number of records
+$total_pages = ceil($total_records / $num_rec_per_page); 
+
+//echo "<a href='pagination.php?page=1'>".'|<'."</a> "; // Goto 1st page 
+
+
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+echo '<span style="color:brown;font:14px Arial"><b>NUmber Of Pages:</b></span>'; 
+echo " &nbsp;&nbsp;&nbsp; ";
+for ($i=1; $i<=$total_pages; $i++) 
+
+{ 
+            
+			
+            echo "<b><a href='studentwelcomepage.php?page=".$i."'>".$i."</a><b> "; 
+			echo " &nbsp;&nbsp;&nbsp;";
+			
+}; 
+//echo "<a href='pagination.php?page=$total_pages'>".'>|'."</a> "; // Goto last page
+?>
 
 
 
-</center>
 <br><br><br><br><br>
 <center>
 

@@ -1,0 +1,98 @@
+/* Colorful Flat Social Media Icons for Web Developers and Designers */
+/* Author : Mian Shahzad Raza */
+/* Contact : Email (mian.shahzad.raza@gmail.com), Phone (+92-313-4197034), Skype (gsolutionspk) */
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #f0f0f0;
+}
+.container {
+	background: #fff;
+	padding-top:30px;
+}
+h1 {
+	margin-bottom: 10px;
+	font-family: 'Droid Serif', serif !important;
+	font-weight: normal;
+	font-size: 38px;
+	margin-top: 0;
+	text-align: center;
+	font-weight: bold;
+	color: #D01E15;
+	padding: 5px;
+	background: #f0f0f0;
+}
+.row_icons {
+	width: 100%;
+	clear: both;
+	margin-bottom: 20px;
+	height: 100px;
+	border-bottom: 2px dashed #ccc;
+}
+.row_icons h2 {
+	margin-bottom: 5px;
+	font-family: 'Droid Serif', serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin-top: 0;
+	text-align: center;
+}
+.icons {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.icons li {
+	
+	margin-right: 6px;
+}
+.icons li:last-child {
+	margin-right: 0;
+}
+.icons li a {
+	text-decoration: none;
+	text-align: center;
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	font-size: 28px;
+	color: #fff;
+	line-height: 50px;
+}
+.icons li a:hover {
+	z-index:99;
+}
+.icons li #fb {background-image: url("dadassd.jpg");}
+.icons li #tw {background:#55ACEE;}
+.icons li #gp {background:#DD4B39;}
+.icons li #pn {background:#D01E15;}
+.icons li #yt {background:#D82A27;}
+.icons li #st {background:#EB4924;}
+.icons li #ln {background:#1A84BC;}
+.icons li #in {background:#B4785A;}
+.icons li #rd {background:#C5DDF6; color:#222}
+.icons li #tm {background:#304E6C;}
+
+/* Bordered Effect */
+
+/*
+.border-effect li #fb::before {border-color:#4862A3 !important;}
+.border-effect li #tw::before {border-color:#55ACEE !important;}
+.border-effect li #gp::before {border-color:#DD4B39 !important;}
+.border-effect li #pn::before {border-color:#D01E15 !important;}
+.border-effect li #yt::before {border-color:#D82A27 !important;}
+.border-effect li #st::before {border-color:#EB4924 !important;}
+.border-effect li #ln::before {border-color:#1A84BC !important;}
+.border-effect li #in::before {border-color:#B4785A !important;}
+.border-effect li #rd::before {border-color:#C5DDF6 !important;}
+.border-effect li #tm::before {border-color:#304E6C !important;}
+
+/*
+.bg-effect #fb, .bg-effect #tw, .bg-effect  #gp, .bg-effect #pn, .bg-effect #yt, .bg-effect  #st, .bg-effect #st, .bg-effect  #ln, .bg-effect #in, .bg-effect #rd, .bg-effect #tm {
+	color: #333;
+}
+
+/*.bg-effect #fb:hover, .bg-effect #tw:hover, .bg-effect  #gp:hover, .bg-effect #pn:hover, .bg-effect #yt:hover, .bg-effect  #st:hover, .bg-effect #st:hover, .bg-effect  #ln:hover, .bg-effect #in:hover, .bg-effect #rd:hover, .bg-effect #tm:hover {
+	color: #fff;
+}
